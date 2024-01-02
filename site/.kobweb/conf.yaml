@@ -1,0 +1,14 @@
+site:
+  title: "Kotfolio"
+
+server:
+  files:
+    dev:
+      contentRoot: "build/processedResources/js/main/public"
+      script: "build/dist/js/developmentExecutable/kotfolio.js"
+      api: "build/libs/kotfolio.jar"
+    prod:
+      script: "build/dist/js/productionExecutable/kotfolio.js"
+      siteRoot: ".kobweb/site"
+
+  port: 8080
