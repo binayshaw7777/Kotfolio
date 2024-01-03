@@ -13,8 +13,6 @@ import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.forms.Button
-import com.varabyte.kobweb.silk.components.layout.breakpoint.displayIfAtLeast
-import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.components.style.ComponentStyle
 import com.varabyte.kobweb.silk.components.style.base
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
@@ -22,18 +20,22 @@ import com.varabyte.kobweb.silk.components.style.toAttrs
 import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
-import com.varabyte.kobweb.silk.theme.colors.ColorSchemes
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Div
-import org.jetbrains.compose.web.dom.Text
 import com.binayshaw7777.kotfolio.HeadlineTextStyle
 import com.binayshaw7777.kotfolio.SubheadlineTextStyle
 import com.binayshaw7777.kotfolio.components.layouts.PageLayout
-import com.binayshaw7777.kotfolio.toSitePalette
+import com.binayshaw7777.kotfolio.utils.Constants
 import com.binayshaw7777.kotfolio.utils.CustomColorSchemes
 import com.binayshaw7777.kotfolio.utils.Res
 import com.varabyte.kobweb.compose.css.FontSize
+import com.varabyte.kobweb.compose.css.FontWeight
+import com.varabyte.kobweb.compose.css.TextAlign
+import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.ui.Alignment
+import com.varabyte.kobweb.silk.components.forms.ButtonSize
+import com.varabyte.kobweb.silk.components.graphics.Image
+import org.jetbrains.compose.web.dom.Span
 
 // Container that has a tagline and grid on desktop, and just the tagline on mobile
 val HeroContainerStyle by ComponentStyle {
@@ -76,7 +78,7 @@ fun HomePage() {
                         ) {
 
                             SpanText(
-                                text = "Hello this is",
+                                text = "Hello I'm",
                                 modifier = Modifier
                                     .color(
                                         when (ColorMode.current) {
@@ -84,7 +86,8 @@ fun HomePage() {
                                             ColorMode.DARK -> Colors.DimGray
                                         }
                                     )
-                                    .fontSize(FontSize.Large)
+                                    .fontSize(FontSize.XXLarge)
+                                    .fontWeight(FontWeight.Bold)
                             )
                             SpanText(
                                 text = "Binay Shaw.",
@@ -96,6 +99,7 @@ fun HomePage() {
                                         }
                                     )
                                     .fontSize(FontSize.Larger)
+                                    .fontWeight(FontWeight.Bold)
                             )
                         }
 
@@ -104,26 +108,142 @@ fun HomePage() {
                     Div(SubheadlineTextStyle.toAttrs()) {
                         SpanText(
                             text = "Software Developer and Designer",
-                            modifier = Modifier.color(
-                                when (ColorMode.current) {
-                                    ColorMode.LIGHT -> Colors.Gray
-                                    ColorMode.DARK -> Colors.DimGray
-                                }
-                            )
+                            modifier = Modifier
+                                .color(
+                                    when (ColorMode.current) {
+                                        ColorMode.LIGHT -> Colors.Gray
+                                        ColorMode.DARK -> Colors.DimGray
+                                    }
+                                )
+                                .fontFamily(Res.Fonts.Tauri)
                         )
                     }
 
                     val ctx = rememberPageContext()
 
-                    Div {
-                        Button(onClick = {
-                            ctx.router.navigateTo("https://binayshaw7777.github.io/PassGinie-Kobweb/")
-                        }, colorScheme = CustomColorSchemes.BlackAndWhite) {
-                            Text("Resume")
+                    Div(HeadlineTextStyle.toAttrs()) {
+                        Button(
+                            onClick = {
+                                ctx.router.navigateTo(Constants.RESUME_URL)
+                            },
+                            colorScheme = CustomColorSchemes.BlackAndWhite,
+                            size = ButtonSize.MD,
+                            modifier = Modifier.width(150.percent)
+                        ) {
+                            SpanText(
+                                text = "Resume",
+                                modifier = Modifier.fontFamily(Res.Fonts.Tauri)
+                            )
+                        }
+                    }
+
+                    Column(
+                        modifier = Modifier.margin(top = 10.cssRem),
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Row {
+                            Div(SubheadlineTextStyle.toAttrs()) {
+                                SpanText(
+                                    text = "About me.",
+                                    modifier = Modifier
+                                        .align(Alignment.Bottom)
+                                        .fontSize(FontSize.XXLarge)
+                                        .color(
+                                            when (ColorMode.current) {
+                                                ColorMode.LIGHT -> Colors.Black
+                                                ColorMode.DARK -> Colors.White
+                                            }
+                                        )
+                                        .fontWeight(FontWeight.Bold)
+                                )
+                            }
+                            Image(
+                                src = Res.Images.PORTAL_STAR,
+                                modifier = Modifier
+                                    .align(Alignment.Top)
+                                    .size(22.px)
+                            )
+                        }
+
+                        SpanText(
+                            text = "Lorem ipsum dolor sit amet, mel no decore ancillae, qui oportere facilisis ut. Mea cu quaestio hendrerit, ea decore nusquam alienum eam. Vis novum iuvaret dissentiet ex, duo te wisi maiestatis. Aliquid eligendi mnesarchum vim ex, at graeci vivendo duo. Est cu petentium conclusionemque, tritani recusabo vel te. Pri no veniam aperiam iudicabit, id quidam quodsi urbanitas sed, ea sanctus docendi voluptua quo.",
+                            modifier = Modifier
+                                .textAlign(TextAlign.Center)
+                                .margin(topBottom = 2.cssRem)
+                                .color(
+                                    when (ColorMode.current) {
+                                        ColorMode.LIGHT -> Colors.Gray
+                                        ColorMode.DARK -> Colors.DimGray
+                                    }
+                                )
+                                .fontFamily(Res.Fonts.DM_SANS)
+                        )
+                    }
+
+                    Column(
+                        modifier = Modifier.margin(top = 6.cssRem),
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Row {
+                            Div(SubheadlineTextStyle.toAttrs()) {
+                                SpanText(
+                                    text = "Work Experience.",
+                                    modifier = Modifier
+                                        .align(Alignment.Bottom)
+                                        .fontSize(FontSize.XXLarge)
+                                        .color(
+                                            when (ColorMode.current) {
+                                                ColorMode.LIGHT -> Colors.Black
+                                                ColorMode.DARK -> Colors.White
+                                            }
+                                        )
+                                        .fontWeight(FontWeight.Bold)
+                                )
+                            }
+                            Image(
+                                src = Res.Images.PORTAL_STAR,
+                                modifier = Modifier
+                                    .align(Alignment.Top)
+                                    .size(22.px)
+                            )
+                        }
+
+                        Span(
+                            Modifier
+                                .textAlign(TextAlign.Center)
+                                .margin(top = 2.cssRem)
+                                .fontFamily(Res.Fonts.DM_SANS)
+                                .color(
+                                    when (ColorMode.current) {
+                                        ColorMode.LIGHT -> Colors.Gray
+                                        ColorMode.DARK -> Colors.DimGray
+                                    }
+                                )
+                                .toAttrs()
+                        ) {
+                            SpanText(
+                                text = "I’m a Software Developer Engineer, specializing in Android & Backend Development with "
+                            )
+                            SpanText(
+                                text = "5 months",
+                                modifier = Modifier
+                                    .color(
+                                        when (ColorMode.current) {
+                                            ColorMode.LIGHT -> Colors.Black
+                                            ColorMode.DARK -> Colors.White
+                                        }
+                                    )
+                            )
+                            SpanText(
+                                text = " of Internship Experience."
+                            )
                         }
                     }
 
                 }
+
 //                    Div(HeadlineTextStyle.toAttrs()) {
 //                        SpanText(
 //                            "Use this template as your starting point for ", Modifier.color(

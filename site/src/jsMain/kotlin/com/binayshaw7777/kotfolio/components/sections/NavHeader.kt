@@ -106,7 +106,8 @@ fun NavHeader() {
 //            Image("/kobweb-logo.png", "Kobweb Logo", Modifier.height(2.cssRem).display(DisplayStyle.Block))
 //        }
 
-//        Spacer()
+        Spacer()
+
         Row(
             Modifier
                 .fontSize(1.5.cssRem)
@@ -133,6 +134,7 @@ fun NavHeader() {
             ColorModeButton()
         }
 
+        Spacer()
     }
 }
 

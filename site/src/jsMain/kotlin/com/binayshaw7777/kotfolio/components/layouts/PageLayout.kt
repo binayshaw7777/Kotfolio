@@ -116,6 +116,6 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
             }
         }
         // Associate the footer with the row that will get pushed off the bottom of the page if it can't fit.
-//        Footer(Modifier.fillMaxWidth().gridRow(2))
+        Footer(Modifier.fillMaxWidth().gridRow(2))
     }
 }
