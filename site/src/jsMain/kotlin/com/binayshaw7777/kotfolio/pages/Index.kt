@@ -25,6 +25,7 @@ import org.jetbrains.compose.web.dom.Div
 import com.binayshaw7777.kotfolio.HeadlineTextStyle
 import com.binayshaw7777.kotfolio.SubheadlineTextStyle
 import com.binayshaw7777.kotfolio.components.layouts.PageLayout
+import com.binayshaw7777.kotfolio.components.widgets.WorkExperienceBlock
 import com.binayshaw7777.kotfolio.utils.Constants
 import com.binayshaw7777.kotfolio.utils.CustomColorSchemes
 import com.binayshaw7777.kotfolio.utils.Res
@@ -238,6 +239,32 @@ fun HomePage() {
                             )
                             SpanText(
                                 text = " of Internship Experience."
+                            )
+                        }
+                        Row(
+                            modifier = Modifier.margin(topBottom = 3.cssRem),
+                            horizontalArrangement = Arrangement.Center
+                        ) {
+
+                            WorkExperienceBlock(
+                                sequenceNumber = "01",
+                                role = "Software Developer Intern",
+                                organization = "IONAGE",
+                                duration = "July 23 - Present"
+                            )
+
+                            WorkExperienceBlock(
+                                sequenceNumber = "02",
+                                role = "Software Developer Intern",
+                                organization = "Humara Nagar",
+                                duration = "Jan 23 - Mar 23"
+                            )
+
+                            WorkExperienceBlock(
+                                sequenceNumber = "03",
+                                role = "Software Developer Intern",
+                                organization = "Edvora",
+                                duration = "Oct 22 - Nov 22"
                             )
                         }
                     }
