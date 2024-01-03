@@ -22,8 +22,12 @@ import com.binayshaw7777.kotfolio.components.sections.Footer
 import com.binayshaw7777.kotfolio.components.sections.NavHeader
 import com.binayshaw7777.kotfolio.utils.Res
 import com.binayshaw7777.kotfolio.toSitePalette
+import com.varabyte.kobweb.compose.css.functions.invert
 import com.varabyte.kobweb.compose.ui.graphics.Colors
+import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.components.graphics.Image
+import org.jetbrains.compose.web.ExperimentalComposeWebApi
+import org.jetbrains.compose.web.css.filter
 
 val PageContentStyle by ComponentStyle {
     base { Modifier.fillMaxSize().padding(leftRight = 2.cssRem, top = 4.cssRem) }
@@ -64,16 +68,19 @@ private fun SvgCobweb(modifier: Modifier) {
     }
 }
 
+@OptIn(ExperimentalComposeWebApi::class)
 @Composable
 fun SVGBackroundCircle(modifier: Modifier) {
     // On mobile, the SVG would cause scrolling, so clamp its max width
+    val isLight = when (ColorMode.current) {
+        ColorMode.LIGHT -> true
+        ColorMode.DARK -> false
+    }
     Image(
-        src = Res.Images.BACKGROUND_CIRCLES, modifier = Modifier.color(
-            when (ColorMode.current) {
-                ColorMode.LIGHT -> Colors.Black
-                ColorMode.DARK -> Colors.White
-            }
-        ).then(modifier)
+        src = Res.Images.BACKGROUND_CIRCLES,
+        modifier = Modifier
+            .styleModifier { filter { if (isLight) invert(1) else invert(0) } }
+            .then(modifier)
     )
 }
 
