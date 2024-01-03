@@ -34,6 +34,7 @@ import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.*
 import com.binayshaw7777.kotfolio.components.widgets.IconButton
 import com.binayshaw7777.kotfolio.toSitePalette
+import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 
 val NavHeaderStyle by ComponentStyle.base {
     Modifier.fillMaxWidth().padding(1.cssRem)
@@ -56,7 +57,7 @@ private fun ColorModeButton() {
     IconButton(onClick = { colorMode = colorMode.opposite },) {
         if (colorMode.isLight) MoonIcon() else SunIcon()
     }
-    Tooltip(ElementTarget.PreviousSibling, "Toggle color mode", placement = PopupPlacement.BottomRight)
+//    Tooltip(ElementTarget.PreviousSibling, "Toggle color mode", placement = PopupPlacement.BottomRight)
 }
 
 @Composable
@@ -100,18 +101,12 @@ enum class SideMenuState {
 @Composable
 fun NavHeader() {
     Row(NavHeaderStyle.toModifier(), verticalAlignment = Alignment.CenterVertically) {
-        Link("https://kobweb.varabyte.com") {
-            // Block display overrides inline display of the <img> tag, so it calculates centering better
-            Image("/kobweb-logo.png", "Kobweb Logo", Modifier.height(2.cssRem).display(DisplayStyle.Block))
-        }
+//        Link("https://kobweb.varabyte.com") {
+//            // Block display overrides inline display of the <img> tag, so it calculates centering better
+//            Image("/kobweb-logo.png", "Kobweb Logo", Modifier.height(2.cssRem).display(DisplayStyle.Block))
+//        }
 
-        Spacer()
-
-        Row(Modifier.gap(1.5.cssRem).displayIfAtLeast(Breakpoint.MD), verticalAlignment = Alignment.CenterVertically) {
-            MenuItems()
-            ColorModeButton()
-        }
-
+//        Spacer()
         Row(
             Modifier
                 .fontSize(1.5.cssRem)
@@ -132,6 +127,12 @@ fun NavHeader() {
                 )
             }
         }
+
+        Row(Modifier.gap(1.5.cssRem).displayIfAtLeast(Breakpoint.MD), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween) {
+            MenuItems()
+            ColorModeButton()
+        }
+
     }
 }
 

@@ -30,6 +30,10 @@ import com.binayshaw7777.kotfolio.HeadlineTextStyle
 import com.binayshaw7777.kotfolio.SubheadlineTextStyle
 import com.binayshaw7777.kotfolio.components.layouts.PageLayout
 import com.binayshaw7777.kotfolio.toSitePalette
+import com.binayshaw7777.kotfolio.utils.CustomColorSchemes
+import com.binayshaw7777.kotfolio.utils.Res
+import com.varabyte.kobweb.compose.css.FontSize
+import com.varabyte.kobweb.compose.ui.Alignment
 
 // Container that has a tagline and grid on desktop, and just the tagline on mobile
 val HeroContainerStyle by ComponentStyle {
@@ -39,27 +43,20 @@ val HeroContainerStyle by ComponentStyle {
 
 // A demo grid that appears on the homepage because it looks good
 val HomeGridStyle by ComponentStyle.base {
-    Modifier
-        .gap(0.5.cssRem)
-        .width(70.cssRem)
-        .height(18.cssRem)
+    Modifier.gap(0.5.cssRem).width(70.cssRem).height(18.cssRem)
 }
 
 private val GridCellColorVar by StyleVariable<Color>()
 val HomeGridCellStyle by ComponentStyle.base {
-    Modifier
-        .backgroundColor(GridCellColorVar.value())
-        .boxShadow(blurRadius = 0.6.cssRem, color = GridCellColorVar.value())
-        .borderRadius(1.cssRem)
+    Modifier.backgroundColor(GridCellColorVar.value())
+        .boxShadow(blurRadius = 0.6.cssRem, color = GridCellColorVar.value()).borderRadius(1.cssRem)
 }
 
 @Composable
 private fun GridCell(color: Color, row: Int, column: Int, width: Int? = null, height: Int? = null) {
     Div(
-        HomeGridCellStyle.toModifier()
-            .setVariable(GridCellColorVar, color)
-            .gridItem(row, column, width, height)
-            .toAttrs()
+        HomeGridCellStyle.toModifier().setVariable(GridCellColorVar, color)
+            .gridItem(row, column, width, height).toAttrs()
     )
 }
 
@@ -67,64 +64,119 @@ private fun GridCell(color: Color, row: Int, column: Int, width: Int? = null, he
 @Composable
 fun HomePage() {
     PageLayout("Home") {
-        Row(HeroContainerStyle.toModifier()) {
+        Row(HeroContainerStyle.toModifier().fontFamily(Res.Fonts.Space_Grotesk)) {
             Box {
-                val sitePalette = ColorMode.current.toSitePalette()
 
                 Column(Modifier.gap(2.cssRem)) {
+
                     Div(HeadlineTextStyle.toAttrs()) {
-                        SpanText(
-                            "Use this template as your starting point for ", Modifier.color(
-                                when (ColorMode.current) {
-                                    ColorMode.LIGHT -> Colors.Black
-                                    ColorMode.DARK -> Colors.White
-                                }
+
+                        Column(
+                            horizontalAlignment = Alignment.Start
+                        ) {
+
+                            SpanText(
+                                text = "Hello this is",
+                                modifier = Modifier
+                                    .color(
+                                        when (ColorMode.current) {
+                                            ColorMode.LIGHT -> Colors.Gray
+                                            ColorMode.DARK -> Colors.DimGray
+                                        }
+                                    )
+                                    .fontSize(FontSize.Large)
                             )
-                        )
-                        SpanText(
-                            "Kobweb",
-                            Modifier
-                                .color(sitePalette.brand.accent)
-                                // Use a shadow so this light-colored word is more visible in light mode
-                                .textShadow(0.px, 0.px, blurRadius = 0.5.cssRem, color = Colors.Gray)
-                        )
+                            SpanText(
+                                text = "Binay Shaw.",
+                                modifier = Modifier
+                                    .color(
+                                        when (ColorMode.current) {
+                                            ColorMode.LIGHT -> Colors.Black
+                                            ColorMode.DARK -> Colors.White
+                                        }
+                                    )
+                                    .fontSize(FontSize.Larger)
+                            )
+                        }
+
                     }
 
                     Div(SubheadlineTextStyle.toAttrs()) {
-                        SpanText("You can read the ")
-                        Link("/about", "About")
-                        SpanText(" page for more information.")
+                        SpanText(
+                            text = "Software Developer and Designer",
+                            modifier = Modifier.color(
+                                when (ColorMode.current) {
+                                    ColorMode.LIGHT -> Colors.Gray
+                                    ColorMode.DARK -> Colors.DimGray
+                                }
+                            )
+                        )
                     }
 
                     val ctx = rememberPageContext()
-                    Button(onClick = {
-                        // Change this click handler with your call-to-action behavior
-                        // here. Link to an order page? Open a calendar UI? Play a movie?
-                        // Up to you!
-                        ctx.router.tryRoutingTo("/about")
-                    }, colorScheme = ColorSchemes.Blue) {
-                        Text("This could be your CTA")
+
+                    Div {
+                        Button(onClick = {
+                            ctx.router.navigateTo("https://binayshaw7777.github.io/PassGinie-Kobweb/")
+                        }, colorScheme = CustomColorSchemes.BlackAndWhite) {
+                            Text("Resume")
+                        }
                     }
+
                 }
+//                    Div(HeadlineTextStyle.toAttrs()) {
+//                        SpanText(
+//                            "Use this template as your starting point for ", Modifier.color(
+//                                when (ColorMode.current) {
+//                                    ColorMode.LIGHT -> Colors.Black
+//                                    ColorMode.DARK -> Colors.White
+//                                }
+//                            )
+//                        )
+//                        SpanText(
+//                            "Kobweb",
+//                            Modifier
+//                                .color(sitePalette.brand.accent)
+//                                // Use a shadow so this light-colored word is more visible in light mode
+//                                .textShadow(0.px, 0.px, blurRadius = 0.5.cssRem, color = Colors.Gray)
+//                        )
+//                    }
+//
+//                    Div(SubheadlineTextStyle.toAttrs()) {
+//                        SpanText("You can read the ")
+//                        Link("/about", "About")
+//                        SpanText(" page for more information.")
+//                    }
+//
+//                    val ctx = rememberPageContext()
+//                    Button(onClick = {
+//                        // Change this click handler with your call-to-action behavior
+//                        // here. Link to an order page? Open a calendar UI? Play a movie?
+//                        // Up to you!
+//                        ctx.router.tryRoutingTo("/about")
+//                    }, colorScheme = ColorSchemes.Blue) {
+//                        Text("This could be your CTA")
+//                    }
+//                }
             }
 
-            Div(HomeGridStyle
-                .toModifier()
-                .displayIfAtLeast(Breakpoint.MD)
-                .grid {
-                    rows { repeat(3) { size(1.fr) } }
-                    columns { repeat(5) {size(1.fr) } }
-                }
-                .toAttrs()
-            ) {
-                val sitePalette = ColorMode.current.toSitePalette()
-                GridCell(sitePalette.brand.primary, 1, 1, 2, 2)
-                GridCell(ColorSchemes.Monochrome._600, 1, 3)
-                GridCell(ColorSchemes.Monochrome._100, 1, 4, width = 2)
-                GridCell(sitePalette.brand.accent, 2, 3, width = 2)
-                GridCell(ColorSchemes.Monochrome._300, 2, 5)
-                GridCell(ColorSchemes.Monochrome._800, 3, 1, width = 5)
-            }
+//            Div(HomeGridStyle
+//                .toModifier()
+//                .displayIfAtLeast(Breakpoint.MD)
+//                .grid {
+//                    rows { repeat(3) { size(1.fr) } }
+//                    columns { repeat(5) {size(1.fr) } }
+//                }
+//                .toAttrs()
+//            ) {
+//                val sitePalette = ColorMode.current.toSitePalette()
+//                GridCell(sitePalette.brand.primary, 1, 1, 2, 2)
+//                GridCell(ColorSchemes.Monochrome._600, 1, 3)
+//                GridCell(ColorSchemes.Monochrome._100, 1, 4, width = 2)
+//                GridCell(sitePalette.brand.accent, 2, 3, width = 2)
+//                GridCell(ColorSchemes.Monochrome._300, 2, 5)
+//                GridCell(ColorSchemes.Monochrome._800, 3, 1, width = 5)
+//            }
         }
     }
 }
