@@ -1,26 +1,20 @@
 package com.binayshaw7777.kotfolio.components.sections
 
 import androidx.compose.runtime.Composable
-import com.binayshaw7777.kotfolio.components.widgets.IconButton
-import com.varabyte.kobweb.compose.css.TextAlign
-import com.varabyte.kobweb.compose.css.WhiteSpace
+import com.binayshaw7777.kotfolio.components.widgets.AppearanceAwareImage
+import com.binayshaw7777.kotfolio.components.widgets.IconButtonNoHover
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
-import com.varabyte.kobweb.silk.components.navigation.Link
-import com.varabyte.kobweb.silk.components.navigation.UncoloredLinkVariant
 import com.varabyte.kobweb.silk.components.style.ComponentStyle
 import com.varabyte.kobweb.silk.components.style.base
 import com.varabyte.kobweb.silk.components.style.toModifier
-import com.varabyte.kobweb.silk.components.style.vars.color.ColorVar
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.percent
-import org.jetbrains.compose.web.dom.Span
-import com.binayshaw7777.kotfolio.toSitePalette
 import com.binayshaw7777.kotfolio.utils.Constants
 import com.binayshaw7777.kotfolio.utils.CustomColorSchemes
 import com.binayshaw7777.kotfolio.utils.Res
@@ -34,27 +28,29 @@ import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.components.forms.ButtonSize
-import org.jetbrains.compose.web.css.FlexDirection.Companion.Row
+import org.jetbrains.compose.web.css.DisplayStyle
+import org.jetbrains.compose.web.css.fr
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.textDecoration
+import org.jetbrains.compose.web.dom.Div
 
 val FooterStyle by ComponentStyle.base {
-    Modifier
-        .backgroundColor(colorMode.toSitePalette().nearBackground)
-        .padding(topBottom = 1.5.cssRem, leftRight = 10.percent)
+    Modifier.padding(topBottom = 1.5.cssRem, leftRight = 10.percent)
 }
 
 @Composable
 fun Footer(modifier: Modifier = Modifier) {
+    val footerColor = when (ColorMode.current) {
+        ColorMode.LIGHT -> Res.Colors.FOOTER_COLOR_LIGHT
+        ColorMode.DARK -> Res.Colors.FOOTER_COLOR_DARK
+    }
     Box(
-        FooterStyle.toModifier().fontFamily(Res.Fonts.DM_SANS).then(modifier),
+        FooterStyle.toModifier().backgroundColor(footerColor).fontFamily(Res.Fonts.DM_SANS).then(modifier),
         contentAlignment = Alignment.Center
     ) {
-//        Span(Modifier.textAlign(TextAlign.Center).toAttrs()) {
-        val sitePalette = ColorMode.current.toSitePalette()
 
         Column(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().margin(top = 2.cssRem),
             horizontalAlignment = Alignment.Start
         ) {
             SpanText(
@@ -73,10 +69,9 @@ fun Footer(modifier: Modifier = Modifier) {
             val ctx = rememberPageContext()
 
             Row(
-                modifier = Modifier.fillMaxWidth().padding(topBottom = 20.px),
+                modifier = Modifier.fillMaxWidth().padding(topBottom = 2.cssRem),
                 horizontalArrangement = Arrangement.Start,
                 verticalAlignment = Alignment.CenterVertically
-
             ) {
 
                 Button(
@@ -106,33 +101,45 @@ fun Footer(modifier: Modifier = Modifier) {
 
                 Spacer()
 
-                IconButton(
-                    onClick = {
-
-                    }
+                Div(
+                    Modifier
+                        .display(DisplayStyle.Grid)
+                        .gap(10.px)
+                        .gridTemplateColumns { repeat(6) { minmax(0.2.cssRem, 1.fr) } }
+                        .gridTemplateRows { repeat(1) { minmax(0.px, 1.fr) } }
+                        .styleModifier {
+                            property("grid-row-columns", "masonry")
+                        }
+                        .toAttrs()
                 ) {
 
+                    IconButtonNoHover(
+                        onClick = { ctx.router.navigateTo(Constants.LINKEDIN_URL) }
+                    ) {
+                        AppearanceAwareImage(src = Res.Images.LINKEDIN)
+                    }
+                    IconButtonNoHover(
+                        onClick = { ctx.router.navigateTo(Constants.GITHUB_URL) }
+                    ) {
+                        AppearanceAwareImage(src = Res.Images.GITHUB)
+                    }
+                    IconButtonNoHover(
+                        onClick = { ctx.router.navigateTo(Constants.TWITTER_URL) }
+                    ) {
+                        AppearanceAwareImage(src = Res.Images.TWITTER_X)
+                    }
+                    IconButtonNoHover(
+                        onClick = { ctx.router.navigateTo(Constants.BEHANCE_URL) }
+                    ) {
+                        AppearanceAwareImage(src = Res.Images.BEHANCE)
+                    }
+                    IconButtonNoHover(
+                        onClick = { ctx.router.navigateTo(Constants.MEDIUM_URL) }
+                    ) {
+                        AppearanceAwareImage(src = Res.Images.MEDIUM)
+                    }
                 }
             }
         }
-
-//            SpanText("Built with ")
-//            Link(
-//                "https://github.com/varabyte/kobweb",
-//                "Kobweb",
-//                Modifier.setVariable(ColorVar, sitePalette.brand.primary),
-//                variant = UncoloredLinkVariant
-//            )
-//            SpanText(", template designed by ")
-//
-//            // Huge thanks to UI Rocket (https://ui-rocket.com) for putting this great template design together for us!
-//            // If you like what you see here and want help building your own site, consider checking out their services.
-//            Link(
-//                "https://ui-rocket.com",
-//                "UI Rocket",
-//                Modifier.setVariable(ColorVar, sitePalette.brand.accent).whiteSpace(WhiteSpace.NoWrap),
-//                variant = UncoloredLinkVariant
-//            )
-//        }
     }
 }

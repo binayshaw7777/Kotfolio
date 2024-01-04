@@ -28,13 +28,11 @@ object Res {
         const val NODEJS_LOGO = "images/Skills/NodeJS.svg"
 
         // Socials
-        const val BEHANCE = "behance.svg"
-        const val DISCORD = "discord.svg"
-        const val GITHUB = "github.svg"
-        const val HASHNODE = "hashnode.svg"
-        const val LINKEDIN = "linkedin.svg"
-        const val MEDIUM = "medium.svg"
-        const val TWITTER_X = "twitter-x.svg"
+        const val BEHANCE = "images/Socials/behance.svg"
+        const val GITHUB = "images/Socials/github.svg"
+        const val LINKEDIN = "images/Socials/linkedin.svg"
+        const val MEDIUM = "images/Socials/medium.svg"
+        const val TWITTER_X = "images/Socials/twitter-x.svg"
     }
 
     object Fonts {
@@ -44,6 +42,9 @@ object Res {
     }
 
     object Colors {
-        val FOOTER_COLOR = Color.Companion.rgb(0x0D0D0D)
-        val GLASS_BOX_BORDER_COLOR = Color.Companion.rgb(0x7B7B7B)    }
+        val FOOTER_COLOR_LIGHT = Color.Companion.rgb(0xF1F1F1)
+        val FOOTER_COLOR_DARK = Color.Companion.rgb(0x0D0D0D)
+        val GLASS_BOX_BORDER_COLOR = Color.Companion.rgb(0x7B7B7B)
+        val DARK_GRAY_TEXT_COLOR = Color.Companion.rgb(0x7B7B7B)
+    }
 }
