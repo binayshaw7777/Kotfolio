@@ -45,5 +45,5 @@ object Res {
 
     object Colors {
         val FOOTER_COLOR = Color.Companion.rgb(0x0D0D0D)
-    }
+        val GLASS_BOX_BORDER_COLOR = Color.Companion.rgb(0x7B7B7B)    }
 }
