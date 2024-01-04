@@ -6,6 +6,15 @@ object Res {
     object Images {
         const val BACKGROUND_CIRCLES = "images/background_circles.svg"
         const val PORTAL_STAR = "images/portal_star.svg"
+
+        // Socials
+        const val BEHANCE = "behance.svg"
+        const val DISCORD = "discord.svg"
+        const val GITHUB = "github.svg"
+        const val HASHNODE = "hashnode.svg"
+        const val LINKEDIN = "linkedin.svg"
+        const val MEDIUM = "medium.svg"
+        const val TWITTER_X = "twitter-x.svg"
     }
 
     object Fonts {
