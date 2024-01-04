@@ -44,7 +44,8 @@ object Res {
     object Colors {
         val FOOTER_COLOR_LIGHT = Color.Companion.rgb(0xF1F1F1)
         val FOOTER_COLOR_DARK = Color.Companion.rgb(0x0D0D0D)
-        val GLASS_BOX_BORDER_COLOR = Color.Companion.rgb(0x7B7B7B)
+        val GLASS_BOX_BORDER_COLOR_LIGHT = Color.Companion.rgb(0xE9E9E9)
+        val GLASS_BOX_BORDER_COLOR_DARK = Color.Companion.rgb(0x4E4E4E)
         val DARK_GRAY_TEXT_COLOR = Color.Companion.rgb(0x7B7B7B)
     }
 }
