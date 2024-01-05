@@ -25,6 +25,7 @@ import org.jetbrains.compose.web.dom.Div
 import com.binayshaw7777.kotfolio.HeadlineTextStyle
 import com.binayshaw7777.kotfolio.SubheadlineTextStyle
 import com.binayshaw7777.kotfolio.components.layouts.PageLayout
+import com.binayshaw7777.kotfolio.components.styles.ButtonStyle
 import com.binayshaw7777.kotfolio.components.widgets.AppearanceAwareImage
 import com.binayshaw7777.kotfolio.components.widgets.GlassBox
 import com.binayshaw7777.kotfolio.components.widgets.RoundedImage
@@ -138,7 +139,7 @@ fun HomePage() {
                             },
                             colorScheme = CustomColorSchemes.BlackAndWhite,
                             size = ButtonSize.MD,
-                            modifier = Modifier.width(150.percent)
+                            modifier = ButtonStyle.toModifier().width(150.percent)
                         ) {
                             SpanText(
                                 text = "Resume",

@@ -2,15 +2,11 @@ package com.binayshaw7777.kotfolio.components.widgets
 
 import androidx.compose.runtime.Composable
 import com.binayshaw7777.kotfolio.utils.Res
+import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
-import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
-import com.varabyte.kobweb.compose.ui.modifiers.margin
-import com.varabyte.kobweb.compose.ui.modifiers.onClick
-import com.varabyte.kobweb.compose.ui.modifiers.padding
-import com.varabyte.kobweb.compose.ui.modifiers.size
+import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.graphics.Image
@@ -25,7 +21,7 @@ fun RoundedImage(
     val ctx = rememberPageContext()
 
     Box(
-        modifier = Modifier.fillMaxSize().padding(5.px).borderRadius(10.px).then(modifier)
+        modifier = Modifier.fillMaxSize().padding(5.px).borderRadius(10.px).then(modifier).cursor(Cursor.Pointer)
             .onClick {
                 navigateTo?.let {
                     ctx.router.navigateTo(it)
