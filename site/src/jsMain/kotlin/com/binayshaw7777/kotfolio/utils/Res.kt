@@ -6,6 +6,7 @@ object Res {
     object Images {
         const val BACKGROUND_CIRCLES = "images/background_circles.svg"
         const val PORTAL_STAR = "images/portal_star.svg"
+        const val NAVIGATION_ARROW = "images/Navigation_Arrow.svg"
 
         // Tools
         const val ANDROID_LOGO = "images/Tools/Android.svg"
@@ -30,9 +31,24 @@ object Res {
         // Socials
         const val BEHANCE = "images/Socials/behance.svg"
         const val GITHUB = "images/Socials/github.svg"
+        const val GITHUB_FILLED = "images/Socials/github-filled.svg"
         const val LINKEDIN = "images/Socials/linkedin.svg"
         const val MEDIUM = "images/Socials/medium.svg"
         const val TWITTER_X = "images/Socials/twitter-x.svg"
+
+        // Photographs
+        const val IMAGE_1 = "images/Photographs/Image 1.png"
+        const val IMAGE_2 = "images/Photographs/Image 2.png"
+        const val IMAGE_3 = "images/Photographs/Image 3.png"
+        const val IMAGE_4 = "images/Photographs/Image 4.png"
+        const val IMAGE_5 = "images/Photographs/Image 5.png"
+
+        // Projects
+        const val PROJECT_JUSTAP = "images/Projects/Project_JusTap.png"
+        const val PROJECT_MEDIFY = "images/Projects/Project_Medify.png"
+        const val PROJECT_PASSGENIE = "images/Projects/Project_PassGenie.png"
+        const val PROJECT_PRESIN = "images/Projects/Project_PresIN.png"
+        const val PROJECT_READBUD = "images/Projects/Project_ReadBud.png"
     }
 
     object Fonts {

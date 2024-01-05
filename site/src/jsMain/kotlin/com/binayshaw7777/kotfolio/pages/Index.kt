@@ -25,7 +25,9 @@ import org.jetbrains.compose.web.dom.Div
 import com.binayshaw7777.kotfolio.HeadlineTextStyle
 import com.binayshaw7777.kotfolio.SubheadlineTextStyle
 import com.binayshaw7777.kotfolio.components.layouts.PageLayout
+import com.binayshaw7777.kotfolio.components.widgets.AppearanceAwareImage
 import com.binayshaw7777.kotfolio.components.widgets.GlassBox
+import com.binayshaw7777.kotfolio.components.widgets.RoundedImage
 import com.binayshaw7777.kotfolio.components.widgets.WorkExperienceBlock
 import com.binayshaw7777.kotfolio.utils.Constants
 import com.binayshaw7777.kotfolio.utils.CustomColorSchemes
@@ -40,6 +42,9 @@ import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.components.forms.ButtonSize
 import com.varabyte.kobweb.silk.components.graphics.Image
+import com.varabyte.kobweb.silk.components.layout.SimpleGrid
+import com.varabyte.kobweb.silk.components.layout.numColumns
+import com.varabyte.kobweb.silk.components.navigation.Link
 import org.jetbrains.compose.web.dom.Span
 
 // Container that has a tagline and grid on desktop, and just the tagline on mobile
@@ -317,7 +322,8 @@ fun HomePage() {
                                         modifier = Modifier.margin(bottom = 0.6.cssRem)
                                     ) {
                                         GlassBox(
-                                            modifier = Modifier.size(65.px).margin(leftRight = 0.6.cssRem)
+                                            modifier = Modifier.size(65.px)
+                                                .margin(leftRight = 0.6.cssRem)
                                         ) {
                                             Image(
                                                 src = Res.Images.KOTLIN_LOGO,
@@ -328,7 +334,8 @@ fun HomePage() {
                                             )
                                         }
                                         GlassBox(
-                                            modifier = Modifier.size(65.px).margin(leftRight = 0.6.cssRem)
+                                            modifier = Modifier.size(65.px)
+                                                .margin(leftRight = 0.6.cssRem)
                                         ) {
                                             Image(
                                                 src = Res.Images.JAVA_LOGO,
@@ -336,7 +343,8 @@ fun HomePage() {
                                             )
                                         }
                                         GlassBox(
-                                            modifier = Modifier.size(65.px).margin(leftRight = 0.6.cssRem)
+                                            modifier = Modifier.size(65.px)
+                                                .margin(leftRight = 0.6.cssRem)
                                         ) {
                                             Image(
                                                 src = Res.Images.HTML_LOGO,
@@ -344,7 +352,8 @@ fun HomePage() {
                                             )
                                         }
                                         GlassBox(
-                                            modifier = Modifier.size(65.px).margin(leftRight = 0.6.cssRem)
+                                            modifier = Modifier.size(65.px)
+                                                .margin(leftRight = 0.6.cssRem)
                                         ) {
                                             Image(
                                                 src = Res.Images.CSS_LOGO,
@@ -356,7 +365,8 @@ fun HomePage() {
                                         modifier = Modifier.margin(top = 0.6.cssRem)
                                     ) {
                                         GlassBox(
-                                            modifier = Modifier.size(65.px).margin(leftRight = 0.6.cssRem)
+                                            modifier = Modifier.size(65.px)
+                                                .margin(leftRight = 0.6.cssRem)
                                         ) {
                                             Image(
                                                 src = Res.Images.JAVASCRIPT_LOGO,
@@ -364,7 +374,8 @@ fun HomePage() {
                                             )
                                         }
                                         GlassBox(
-                                            modifier = Modifier.size(65.px).margin(leftRight = 0.6.cssRem)
+                                            modifier = Modifier.size(65.px)
+                                                .margin(leftRight = 0.6.cssRem)
                                         ) {
                                             Image(
                                                 src = Res.Images.EXPRESS_LOGO,
@@ -372,7 +383,8 @@ fun HomePage() {
                                             )
                                         }
                                         GlassBox(
-                                            modifier = Modifier.size(65.px).margin(leftRight = 0.6.cssRem)
+                                            modifier = Modifier.size(65.px)
+                                                .margin(leftRight = 0.6.cssRem)
                                         ) {
                                             Image(
                                                 src = Res.Images.NODEJS_LOGO,
@@ -380,7 +392,8 @@ fun HomePage() {
                                             )
                                         }
                                         GlassBox(
-                                            modifier = Modifier.size(65.px).margin(leftRight = 0.6.cssRem)
+                                            modifier = Modifier.size(65.px)
+                                                .margin(leftRight = 0.6.cssRem)
                                         ) {
                                             Image(
                                                 src = Res.Images.MARKDOWN_LOGO,
@@ -400,7 +413,8 @@ fun HomePage() {
                                         modifier = Modifier.margin(bottom = 0.6.cssRem)
                                     ) {
                                         GlassBox(
-                                            modifier = Modifier.size(65.px).margin(leftRight = 0.6.cssRem)
+                                            modifier = Modifier.size(65.px)
+                                                .margin(leftRight = 0.6.cssRem)
                                         ) {
                                             Image(
                                                 src = Res.Images.ANDROID_LOGO,
@@ -408,7 +422,8 @@ fun HomePage() {
                                             )
                                         }
                                         GlassBox(
-                                            modifier = Modifier.size(65.px).margin(leftRight = 0.6.cssRem)
+                                            modifier = Modifier.size(65.px)
+                                                .margin(leftRight = 0.6.cssRem)
                                         ) {
                                             Image(
                                                 src = Res.Images.INTELLIJ_LOGO,
@@ -416,7 +431,8 @@ fun HomePage() {
                                             )
                                         }
                                         GlassBox(
-                                            modifier = Modifier.size(65.px).margin(leftRight = 0.6.cssRem)
+                                            modifier = Modifier.size(65.px)
+                                                .margin(leftRight = 0.6.cssRem)
                                         ) {
                                             Image(
                                                 src = Res.Images.FIGMA_LOGO,
@@ -424,7 +440,8 @@ fun HomePage() {
                                             )
                                         }
                                         GlassBox(
-                                            modifier = Modifier.size(65.px).margin(leftRight = 0.6.cssRem)
+                                            modifier = Modifier.size(65.px)
+                                                .margin(leftRight = 0.6.cssRem)
                                         ) {
                                             Image(
                                                 src = Res.Images.FIREBASE_LOGO,
@@ -436,7 +453,8 @@ fun HomePage() {
                                         modifier = Modifier.margin(top = 0.6.cssRem)
                                     ) {
                                         GlassBox(
-                                            modifier = Modifier.size(65.px).margin(leftRight = 0.6.cssRem)
+                                            modifier = Modifier.size(65.px)
+                                                .margin(leftRight = 0.6.cssRem)
                                         ) {
                                             Image(
                                                 src = Res.Images.MONGODB_LOGO,
@@ -444,7 +462,8 @@ fun HomePage() {
                                             )
                                         }
                                         GlassBox(
-                                            modifier = Modifier.size(65.px).margin(leftRight = 0.6.cssRem)
+                                            modifier = Modifier.size(65.px)
+                                                .margin(leftRight = 0.6.cssRem)
                                         ) {
                                             Image(
                                                 src = Res.Images.VSCODE_LOGO,
@@ -452,7 +471,8 @@ fun HomePage() {
                                             )
                                         }
                                         GlassBox(
-                                            modifier = Modifier.size(65.px).margin(leftRight = 0.6.cssRem)
+                                            modifier = Modifier.size(65.px)
+                                                .margin(leftRight = 0.6.cssRem)
                                         ) {
                                             Image(
                                                 src = Res.Images.GIT_LOGO,
@@ -460,7 +480,8 @@ fun HomePage() {
                                             )
                                         }
                                         GlassBox(
-                                            modifier = Modifier.size(65.px).margin(leftRight = 0.6.cssRem)
+                                            modifier = Modifier.size(65.px)
+                                                .margin(leftRight = 0.6.cssRem)
                                         ) {
                                             Image(
                                                 src = Res.Images.POSTMAN_LOGO,
@@ -502,6 +523,101 @@ fun HomePage() {
                             )
                         }
 
+
+                    }
+
+                    Column(
+                        modifier = Modifier.fillMaxWidth().margin(top = 10.cssRem),
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Row {
+                            Div(SubheadlineTextStyle.toAttrs()) {
+                                SpanText(
+                                    text = "My Side Projects.",
+                                    modifier = Modifier
+                                        .align(Alignment.Bottom)
+                                        .fontSize(FontSize.XXLarge)
+                                        .color(
+                                            when (ColorMode.current) {
+                                                ColorMode.LIGHT -> Colors.Black
+                                                ColorMode.DARK -> Colors.White
+                                            }
+                                        )
+                                        .fontWeight(FontWeight.Bold)
+                                )
+                            }
+                            Image(
+                                src = Res.Images.PORTAL_STAR,
+                                modifier = Modifier
+                                    .align(Alignment.Top)
+                                    .size(22.px)
+                            )
+                        }
+                        SpanText(
+                            text = "I really have a bad habit of creating projects over projects XD",
+                            modifier = Modifier
+                                .textAlign(TextAlign.Center)
+                                .margin(topBottom = 0.5.cssRem)
+                                .color(
+                                    when (ColorMode.current) {
+                                        ColorMode.LIGHT -> Colors.Gray
+                                        ColorMode.DARK -> Colors.DimGray
+                                    }
+                                )
+                                .fontFamily(Res.Fonts.DM_SANS)
+                        )
+
+                        SimpleGrid(
+                            numColumns = numColumns(base = 1, md = 3),
+                            modifier = Modifier.fillMaxWidth().margin(top = 3.cssRem, bottom = 6.cssRem)
+                        ) {
+                            RoundedImage(
+                                src = Res.Images.PROJECT_READBUD,
+                                navigateTo = Constants.PROJECT_READBUD_URL
+                            )
+                            RoundedImage(
+                                src = Res.Images.PROJECT_JUSTAP,
+                                navigateTo = Constants.PROJECT_JUSTAP_URL
+                            )
+                            RoundedImage(
+                                src = Res.Images.PROJECT_PASSGENIE,
+                                navigateTo = Constants.PROJECT_PASSGENIE_URL
+                            )
+                            RoundedImage(
+                                src = Res.Images.PROJECT_MEDIFY,
+                                navigateTo = Constants.PROJECT_MEDIFY_URL
+                            )
+                            RoundedImage(
+                                src = Res.Images.PROJECT_PRESIN,
+                                navigateTo = Constants.PROJECT_PRESIN_URL
+                            )
+                            Box(
+                                modifier = Modifier.fillMaxSize(),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Link(
+                                        path = "https://github.com/binayshaw7777?tab=repositories",
+                                        text = "More on GitHub.",
+                                        modifier = Modifier
+                                            .fontFamily(Res.Fonts.DM_SANS)
+                                            .color(
+                                                when (ColorMode.current) {
+                                                    ColorMode.LIGHT -> Colors.Black
+                                                    ColorMode.DARK -> Colors.White
+                                                }
+                                            )
+                                            .margin(right = 4.px)
+                                    )
+                                    AppearanceAwareImage(
+                                        src = Res.Images.NAVIGATION_ARROW
+                                    )
+                                }
+                            }
+                        }
                     }
 
                 }
