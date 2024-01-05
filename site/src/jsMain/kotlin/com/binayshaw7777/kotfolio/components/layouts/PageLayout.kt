@@ -23,6 +23,7 @@ import com.binayshaw7777.kotfolio.components.sections.NavHeader
 import com.binayshaw7777.kotfolio.components.widgets.AppearanceAwareImage
 import com.binayshaw7777.kotfolio.utils.Res
 import com.binayshaw7777.kotfolio.toSitePalette
+import com.varabyte.kobweb.compose.css.PointerEvents
 import com.varabyte.kobweb.compose.ui.styleModifier
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 
@@ -114,7 +115,7 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
             .gridTemplateRows { size(1.fr); size(minContent) },
         contentAlignment = Alignment.Center
     ) {
-        SVGBackroundCircle(Modifier.align(Alignment.TopEnd))
+        SVGBackroundCircle(Modifier.align(Alignment.TopEnd).pointerEvents(PointerEvents.None))
 
         Column(
             // Isolate the content, because otherwise the absolute-positioned SVG above will render on top of it.

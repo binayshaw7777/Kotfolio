@@ -74,12 +74,12 @@ private fun GridCell(color: Color, row: Int, column: Int, width: Int? = null, he
 @Composable
 fun HomePage() {
     PageLayout("Home") {
-        Row(HeroContainerStyle.toModifier().fontFamily(Res.Fonts.Space_Grotesk)) {
+        Row(HeroContainerStyle.toModifier().fontFamily(Res.Fonts.Space_Grotesk).id("home")) {
             Box {
 
                 Column(Modifier.gap(2.cssRem)) {
 
-                    Div(HeadlineTextStyle.toAttrs()) {
+                    Div(HeadlineTextStyle.toModifier().toAttrs()) {
 
                         Column(
                             horizontalAlignment = Alignment.Start
@@ -146,7 +146,7 @@ fun HomePage() {
                     }
 
                     Column(
-                        modifier = Modifier.margin(top = 10.cssRem),
+                        modifier = Modifier.margin(top = 10.cssRem).id("about"),
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
@@ -190,7 +190,7 @@ fun HomePage() {
                     }
 
                     Column(
-                        modifier = Modifier.margin(top = 6.cssRem),
+                        modifier = Modifier.margin(top = 6.cssRem).id("experience"),
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
@@ -277,7 +277,7 @@ fun HomePage() {
                     }
 
                     Column(
-                        modifier = Modifier.fillMaxWidth().margin(top = 8.cssRem),
+                        modifier = Modifier.fillMaxWidth().margin(top = 8.cssRem).id("skills_and_tools"),
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
@@ -495,7 +495,7 @@ fun HomePage() {
                     }
 
                     Column(
-                        modifier = Modifier.fillMaxWidth().margin(top = 10.cssRem),
+                        modifier = Modifier.fillMaxWidth().margin(top = 10.cssRem).id("photography"),
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
@@ -527,7 +527,7 @@ fun HomePage() {
                     }
 
                     Column(
-                        modifier = Modifier.fillMaxWidth().margin(top = 10.cssRem),
+                        modifier = Modifier.fillMaxWidth().margin(top = 10.cssRem).id("projects"),
                         verticalArrangement = Arrangement.Center,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
