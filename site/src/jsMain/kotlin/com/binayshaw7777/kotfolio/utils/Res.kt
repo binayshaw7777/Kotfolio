@@ -7,6 +7,8 @@ object Res {
         const val BACKGROUND_CIRCLES = "images/background_circles.svg"
         const val PORTAL_STAR = "images/portal_star.svg"
         const val NAVIGATION_ARROW = "images/Navigation_Arrow.svg"
+        const val CUSTOM_CURSOR_DARK = "images/Custom_Cursor_Dark.svg"
+        const val CUSTOM_CURSOR_LIGHT = "images/Custom_Cursor_Light.svg"
 
         // Tools
         const val ANDROID_LOGO = "images/Tools/Android.svg"
