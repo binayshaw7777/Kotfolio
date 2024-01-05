@@ -118,7 +118,7 @@ fun HomePage() {
 
                     Div(SubheadlineTextStyle.toAttrs()) {
                         SpanText(
-                            text = "Software Developer and Designer",
+                            text = "and Nice to meet you!",
                             modifier = Modifier
                                 .color(
                                     when (ColorMode.current) {
@@ -178,7 +178,7 @@ fun HomePage() {
                         }
 
                         SpanText(
-                            text = "Lorem ipsum dolor sit amet, mel no decore ancillae, qui oportere facilisis ut. Mea cu quaestio hendrerit, ea decore nusquam alienum eam. Vis novum iuvaret dissentiet ex, duo te wisi maiestatis. Aliquid eligendi mnesarchum vim ex, at graeci vivendo duo. Est cu petentium conclusionemque, tritani recusabo vel te. Pri no veniam aperiam iudicabit, id quidam quodsi urbanitas sed, ea sanctus docendi voluptua quo.",
+                            text = "Binay is a versatile Software Developer proficient in both Android and iOS development. Additionally, he demonstrates a hands-on approach to crafting elegant User Interfaces, showcasing a talent for bug resolution and consistently delivering optimal results.",
                             modifier = Modifier
                                 .textAlign(TextAlign.Center)
                                 .margin(topBottom = 2.cssRem)
@@ -251,11 +251,11 @@ fun HomePage() {
                                 text = " of Internship Experience."
                             )
                         }
-                        Row(
-                            modifier = Modifier.margin(topBottom = 3.cssRem),
-                            horizontalArrangement = Arrangement.Center
-                        ) {
 
+                        SimpleGrid(
+                            numColumns = numColumns(base = 1, md = 3),
+                            modifier = Modifier.margin(topBottom = 2.cssRem)
+                        ) {
                             WorkExperienceBlock(
                                 sequenceNumber = "01",
                                 role = "Software Developer Intern",
@@ -277,6 +277,32 @@ fun HomePage() {
                                 duration = "Oct 22 - Nov 22"
                             )
                         }
+//                        Row(
+//                            modifier = Modifier.margin(topBottom = 3.cssRem),
+//                            horizontalArrangement = Arrangement.Center
+//                        ) {
+//
+//                            WorkExperienceBlock(
+//                                sequenceNumber = "01",
+//                                role = "Software Developer Intern",
+//                                organization = "IONAGE",
+//                                duration = "July 23 - Present"
+//                            )
+//
+//                            WorkExperienceBlock(
+//                                sequenceNumber = "02",
+//                                role = "Software Developer Intern",
+//                                organization = "Humara Nagar",
+//                                duration = "Jan 23 - Mar 23"
+//                            )
+//
+//                            WorkExperienceBlock(
+//                                sequenceNumber = "03",
+//                                role = "Software Developer Intern",
+//                                organization = "Edvora",
+//                                duration = "Oct 22 - Nov 22"
+//                            )
+//                        }
                     }
 
                     Column(
