@@ -2,9 +2,6 @@ package com.binayshaw7777.kotfolio.pages
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.StyleVariable
-import com.varabyte.kobweb.compose.foundation.layout.Box
-import com.varabyte.kobweb.compose.foundation.layout.Column
-import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Color
 import com.varabyte.kobweb.compose.ui.graphics.Colors
@@ -38,7 +35,7 @@ import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.MixBlendMode
 import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.css.mixBlendMode
-import com.varabyte.kobweb.compose.foundation.layout.Arrangement
+import com.varabyte.kobweb.compose.foundation.layout.*
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.components.forms.ButtonSize
@@ -277,32 +274,6 @@ fun HomePage() {
                                 duration = "Oct 22 - Nov 22"
                             )
                         }
-//                        Row(
-//                            modifier = Modifier.margin(topBottom = 3.cssRem),
-//                            horizontalArrangement = Arrangement.Center
-//                        ) {
-//
-//                            WorkExperienceBlock(
-//                                sequenceNumber = "01",
-//                                role = "Software Developer Intern",
-//                                organization = "IONAGE",
-//                                duration = "July 23 - Present"
-//                            )
-//
-//                            WorkExperienceBlock(
-//                                sequenceNumber = "02",
-//                                role = "Software Developer Intern",
-//                                organization = "Humara Nagar",
-//                                duration = "Jan 23 - Mar 23"
-//                            )
-//
-//                            WorkExperienceBlock(
-//                                sequenceNumber = "03",
-//                                role = "Software Developer Intern",
-//                                organization = "Edvora",
-//                                duration = "Oct 22 - Nov 22"
-//                            )
-//                        }
                     }
 
                     Column(
@@ -334,187 +305,189 @@ fun HomePage() {
                             )
                         }
 
-                        Row(
-                            modifier = Modifier.fillMaxWidth().padding(top = 2.cssRem),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.Center
+                        SimpleGrid(
+                            modifier = Modifier.fillMaxWidth().margin(top = 2.cssRem),
+                            numColumns = numColumns(base = 1, md = 2)
                         ) {
                             GlassBox(
-                                modifier = Modifier.margin(leftRight = 1.cssRem)
+                                modifier = Modifier.margin(all = 3.cssRem)
                             ) {
-                                Column(
-                                    modifier = Modifier.padding(all = 1.5.cssRem)
+                                SimpleGrid(
+                                    modifier = Modifier.padding(all = 1.cssRem),
+                                    numColumns = numColumns(base = 1, md = 4)
                                 ) {
-                                    Row(
-                                        modifier = Modifier.margin(bottom = 0.6.cssRem)
+                                    GlassBox(
+                                        modifier = Modifier.size(65.px)
+                                            .margin(all = 0.6.cssRem)
                                     ) {
-                                        GlassBox(
-                                            modifier = Modifier.size(65.px)
-                                                .margin(leftRight = 0.6.cssRem)
-                                        ) {
-                                            Image(
-                                                src = Res.Images.KOTLIN_LOGO,
-                                                modifier = Modifier.size(42.px)
-                                                    .styleModifier {
-                                                        mixBlendMode(MixBlendMode.Normal)
-                                                    }
-                                            )
-                                        }
-                                        GlassBox(
-                                            modifier = Modifier.size(65.px)
-                                                .margin(leftRight = 0.6.cssRem)
-                                        ) {
-                                            Image(
-                                                src = Res.Images.JAVA_LOGO,
-                                                modifier = Modifier.size(42.px)
-                                            )
-                                        }
-                                        GlassBox(
-                                            modifier = Modifier.size(65.px)
-                                                .margin(leftRight = 0.6.cssRem)
-                                        ) {
-                                            Image(
-                                                src = Res.Images.HTML_LOGO,
-                                                modifier = Modifier.size(42.px)
-                                            )
-                                        }
-                                        GlassBox(
-                                            modifier = Modifier.size(65.px)
-                                                .margin(leftRight = 0.6.cssRem)
-                                        ) {
-                                            Image(
-                                                src = Res.Images.CSS_LOGO,
-                                                modifier = Modifier.size(42.px)
-                                            )
-                                        }
+                                        Image(
+                                            src = Res.Images.KOTLIN_LOGO,
+                                            modifier = Modifier.size(42.px)
+                                                .styleModifier {
+                                                    mixBlendMode(MixBlendMode.Normal)
+                                                }
+                                        )
                                     }
-                                    Row(
-                                        modifier = Modifier.margin(top = 0.6.cssRem)
+                                    GlassBox(
+                                        modifier = Modifier.size(65.px)
+                                            .margin(all = 0.6.cssRem)
+
                                     ) {
-                                        GlassBox(
-                                            modifier = Modifier.size(65.px)
-                                                .margin(leftRight = 0.6.cssRem)
-                                        ) {
-                                            Image(
-                                                src = Res.Images.JAVASCRIPT_LOGO,
-                                                modifier = Modifier.size(42.px)
-                                            )
-                                        }
-                                        GlassBox(
-                                            modifier = Modifier.size(65.px)
-                                                .margin(leftRight = 0.6.cssRem)
-                                        ) {
-                                            Image(
-                                                src = Res.Images.EXPRESS_LOGO,
-                                                modifier = Modifier.size(42.px)
-                                            )
-                                        }
-                                        GlassBox(
-                                            modifier = Modifier.size(65.px)
-                                                .margin(leftRight = 0.6.cssRem)
-                                        ) {
-                                            Image(
-                                                src = Res.Images.NODEJS_LOGO,
-                                                modifier = Modifier.size(42.px)
-                                            )
-                                        }
-                                        GlassBox(
-                                            modifier = Modifier.size(65.px)
-                                                .margin(leftRight = 0.6.cssRem)
-                                        ) {
-                                            Image(
-                                                src = Res.Images.MARKDOWN_LOGO,
-                                                modifier = Modifier.size(42.px)
-                                            )
-                                        }
+                                        Image(
+                                            src = Res.Images.JAVA_LOGO,
+                                            modifier = Modifier.size(42.px)
+                                        )
+                                    }
+                                    GlassBox(
+                                        modifier = Modifier.size(65.px)
+                                            .margin(all = 0.6.cssRem)
+
+                                    ) {
+                                        Image(
+                                            src = Res.Images.HTML_LOGO,
+                                            modifier = Modifier.size(42.px)
+                                        )
+                                    }
+                                    GlassBox(
+                                        modifier = Modifier.size(65.px)
+                                            .margin(all = 0.6.cssRem)
+
+                                    ) {
+                                        Image(
+                                            src = Res.Images.CSS_LOGO,
+                                            modifier = Modifier.size(42.px)
+                                        )
+                                    }
+
+                                    GlassBox(
+                                        modifier = Modifier.size(65.px)
+                                            .margin(all = 0.6.cssRem)
+
+                                    ) {
+                                        Image(
+                                            src = Res.Images.JAVASCRIPT_LOGO,
+                                            modifier = Modifier.size(42.px)
+                                        )
+                                    }
+                                    GlassBox(
+                                        modifier = Modifier.size(65.px)
+                                            .margin(all = 0.6.cssRem)
+
+                                    ) {
+                                        Image(
+                                            src = Res.Images.EXPRESS_LOGO,
+                                            modifier = Modifier.size(42.px)
+                                        )
+                                    }
+                                    GlassBox(
+                                        modifier = Modifier.size(65.px)
+                                            .margin(all = 0.6.cssRem)
+
+                                    ) {
+                                        Image(
+                                            src = Res.Images.NODEJS_LOGO,
+                                            modifier = Modifier.size(42.px)
+                                        )
+                                    }
+                                    GlassBox(
+                                        modifier = Modifier.size(65.px)
+                                            .margin(all = 0.6.cssRem)
+
+                                    ) {
+                                        Image(
+                                            src = Res.Images.MARKDOWN_LOGO,
+                                            modifier = Modifier.size(42.px)
+                                        )
                                     }
                                 }
                             }
+
                             GlassBox(
-                                modifier = Modifier.margin(leftRight = 1.cssRem)
+                                modifier = Modifier.margin(all = 3.cssRem)
                             ) {
-                                Column(
-                                    modifier = Modifier.padding(all = 1.5.cssRem),
+                                SimpleGrid(
+                                    modifier = Modifier.padding(all = 1.cssRem),
+                                    numColumns = numColumns(base = 1, md = 4)
                                 ) {
-                                    Row(
-                                        modifier = Modifier.margin(bottom = 0.6.cssRem)
+                                    GlassBox(
+                                        modifier = Modifier.size(65.px)
+                                            .margin(all = 0.6.cssRem)
+
                                     ) {
-                                        GlassBox(
-                                            modifier = Modifier.size(65.px)
-                                                .margin(leftRight = 0.6.cssRem)
-                                        ) {
-                                            Image(
-                                                src = Res.Images.ANDROID_LOGO,
-                                                modifier = Modifier.size(42.px)
-                                            )
-                                        }
-                                        GlassBox(
-                                            modifier = Modifier.size(65.px)
-                                                .margin(leftRight = 0.6.cssRem)
-                                        ) {
-                                            Image(
-                                                src = Res.Images.INTELLIJ_LOGO,
-                                                modifier = Modifier.size(42.px)
-                                            )
-                                        }
-                                        GlassBox(
-                                            modifier = Modifier.size(65.px)
-                                                .margin(leftRight = 0.6.cssRem)
-                                        ) {
-                                            Image(
-                                                src = Res.Images.FIGMA_LOGO,
-                                                modifier = Modifier.size(42.px)
-                                            )
-                                        }
-                                        GlassBox(
-                                            modifier = Modifier.size(65.px)
-                                                .margin(leftRight = 0.6.cssRem)
-                                        ) {
-                                            Image(
-                                                src = Res.Images.FIREBASE_LOGO,
-                                                modifier = Modifier.size(42.px)
-                                            )
-                                        }
+                                        Image(
+                                            src = Res.Images.ANDROID_LOGO,
+                                            modifier = Modifier.size(42.px)
+                                        )
                                     }
-                                    Row(
-                                        modifier = Modifier.margin(top = 0.6.cssRem)
+                                    GlassBox(
+                                        modifier = Modifier.size(65.px)
+                                            .margin(all = 0.6.cssRem)
+
                                     ) {
-                                        GlassBox(
-                                            modifier = Modifier.size(65.px)
-                                                .margin(leftRight = 0.6.cssRem)
-                                        ) {
-                                            Image(
-                                                src = Res.Images.MONGODB_LOGO,
-                                                modifier = Modifier.size(42.px)
-                                            )
-                                        }
-                                        GlassBox(
-                                            modifier = Modifier.size(65.px)
-                                                .margin(leftRight = 0.6.cssRem)
-                                        ) {
-                                            Image(
-                                                src = Res.Images.VSCODE_LOGO,
-                                                modifier = Modifier.size(42.px)
-                                            )
-                                        }
-                                        GlassBox(
-                                            modifier = Modifier.size(65.px)
-                                                .margin(leftRight = 0.6.cssRem)
-                                        ) {
-                                            Image(
-                                                src = Res.Images.GIT_LOGO,
-                                                modifier = Modifier.size(42.px)
-                                            )
-                                        }
-                                        GlassBox(
-                                            modifier = Modifier.size(65.px)
-                                                .margin(leftRight = 0.6.cssRem)
-                                        ) {
-                                            Image(
-                                                src = Res.Images.POSTMAN_LOGO,
-                                                modifier = Modifier.size(42.px)
-                                            )
-                                        }
+                                        Image(
+                                            src = Res.Images.INTELLIJ_LOGO,
+                                            modifier = Modifier.size(42.px)
+                                        )
+                                    }
+                                    GlassBox(
+                                        modifier = Modifier.size(65.px)
+                                            .margin(all = 0.6.cssRem)
+
+                                    ) {
+                                        Image(
+                                            src = Res.Images.FIGMA_LOGO,
+                                            modifier = Modifier.size(42.px)
+                                        )
+                                    }
+                                    GlassBox(
+                                        modifier = Modifier.size(65.px)
+                                            .margin(all = 0.6.cssRem)
+
+                                    ) {
+                                        Image(
+                                            src = Res.Images.FIREBASE_LOGO,
+                                            modifier = Modifier.size(42.px)
+                                        )
+                                    }
+                                    GlassBox(
+                                        modifier = Modifier.size(65.px)
+                                            .margin(all = 0.6.cssRem)
+
+                                    ) {
+                                        Image(
+                                            src = Res.Images.MONGODB_LOGO,
+                                            modifier = Modifier.size(42.px)
+                                        )
+                                    }
+                                    GlassBox(
+                                        modifier = Modifier.size(65.px)
+                                            .margin(all = 0.6.cssRem)
+
+                                    ) {
+                                        Image(
+                                            src = Res.Images.VSCODE_LOGO,
+                                            modifier = Modifier.size(42.px)
+                                        )
+                                    }
+                                    GlassBox(
+                                        modifier = Modifier.size(65.px)
+                                            .margin(all = 0.6.cssRem)
+
+                                    ) {
+                                        Image(
+                                            src = Res.Images.GIT_LOGO,
+                                            modifier = Modifier.size(42.px)
+                                        )
+                                    }
+                                    GlassBox(
+                                        modifier = Modifier.size(65.px)
+                                            .margin(all = 0.6.cssRem)
+
+                                    ) {
+                                        Image(
+                                            src = Res.Images.POSTMAN_LOGO,
+                                            modifier = Modifier.size(42.px)
+                                        )
                                     }
                                 }
                             }
@@ -646,62 +619,8 @@ fun HomePage() {
                             }
                         }
                     }
-
                 }
-
-//                    Div(HeadlineTextStyle.toAttrs()) {
-//                        SpanText(
-//                            "Use this template as your starting point for ", Modifier.color(
-//                                when (ColorMode.current) {
-//                                    ColorMode.LIGHT -> Colors.Black
-//                                    ColorMode.DARK -> Colors.White
-//                                }
-//                            )
-//                        )
-//                        SpanText(
-//                            "Kobweb",
-//                            Modifier
-//                                .color(sitePalette.brand.accent)
-//                                // Use a shadow so this light-colored word is more visible in light mode
-//                                .textShadow(0.px, 0.px, blurRadius = 0.5.cssRem, color = Colors.Gray)
-//                        )
-//                    }
-//
-//                    Div(SubheadlineTextStyle.toAttrs()) {
-//                        SpanText("You can read the ")
-//                        Link("/about", "About")
-//                        SpanText(" page for more information.")
-//                    }
-//
-//                    val ctx = rememberPageContext()
-//                    Button(onClick = {
-//                        // Change this click handler with your call-to-action behavior
-//                        // here. Link to an order page? Open a calendar UI? Play a movie?
-//                        // Up to you!
-//                        ctx.router.tryRoutingTo("/about")
-//                    }, colorScheme = ColorSchemes.Blue) {
-//                        Text("This could be your CTA")
-//                    }
-//                }
             }
-
-//            Div(HomeGridStyle
-//                .toModifier()
-//                .displayIfAtLeast(Breakpoint.MD)
-//                .grid {
-//                    rows { repeat(3) { size(1.fr) } }
-//                    columns { repeat(5) {size(1.fr) } }
-//                }
-//                .toAttrs()
-//            ) {
-//                val sitePalette = ColorMode.current.toSitePalette()
-//                GridCell(sitePalette.brand.primary, 1, 1, 2, 2)
-//                GridCell(ColorSchemes.Monochrome._600, 1, 3)
-//                GridCell(ColorSchemes.Monochrome._100, 1, 4, width = 2)
-//                GridCell(sitePalette.brand.accent, 2, 3, width = 2)
-//                GridCell(ColorSchemes.Monochrome._300, 2, 5)
-//                GridCell(ColorSchemes.Monochrome._800, 3, 1, width = 5)
-//            }
         }
     }
 }
