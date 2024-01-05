@@ -38,6 +38,8 @@ import com.varabyte.kobweb.compose.css.mixBlendMode
 import com.varabyte.kobweb.compose.foundation.layout.*
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.styleModifier
+import com.varabyte.kobweb.silk.components.animation.Keyframes
+import com.varabyte.kobweb.silk.components.animation.toAnimation
 import com.varabyte.kobweb.silk.components.forms.ButtonSize
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
@@ -70,6 +72,19 @@ private fun GridCell(color: Color, row: Int, column: Int, width: Int? = null, he
     )
 }
 
+val HeroContainerKeyFrames by Keyframes {
+    0.percent {
+        Modifier
+            .margin(top = 50.px)
+            .opacity(0)
+    }
+    100.percent {
+        Modifier
+            .margin(top = 0.px)
+            .opacity(1)
+    }
+}
+
 @Page
 @Composable
 fun HomePage() {
@@ -79,7 +94,12 @@ fun HomePage() {
 
                 Column(Modifier.gap(2.cssRem)) {
 
-                    Div(HeadlineTextStyle.toModifier().toAttrs()) {
+                    Div(HeadlineTextStyle.toModifier().animation(
+                        HeroContainerKeyFrames.toAnimation(
+                            duration = 1.s,
+                            timingFunction = AnimationTimingFunction.EaseInOut
+                        )
+                    ).toAttrs()) {
 
                         Column(
                             horizontalAlignment = Alignment.Start
