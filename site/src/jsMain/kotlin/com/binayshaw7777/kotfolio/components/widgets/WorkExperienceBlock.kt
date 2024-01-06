@@ -1,6 +1,7 @@
 package com.binayshaw7777.kotfolio.components.widgets
 
 import androidx.compose.runtime.Composable
+import com.binayshaw7777.kotfolio.components.model.WorkExperience
 import com.binayshaw7777.kotfolio.utils.Res
 import com.varabyte.kobweb.compose.css.FontSize
 import com.varabyte.kobweb.compose.css.FontWeight
@@ -20,10 +21,7 @@ import org.jetbrains.compose.web.css.px
 @Composable
 fun WorkExperienceBlock(
     modifier: Modifier = Modifier,
-    sequenceNumber: String,
-    role: String,
-    organization: String,
-    duration: String
+    workExperience: WorkExperience
 ) {
     Box(
         contentAlignment = Alignment.Center,
@@ -47,7 +45,7 @@ fun WorkExperienceBlock(
             horizontalAlignment = Alignment.Start
         ) {
             SpanText(
-                text = role,
+                text = workExperience.role,
                 modifier = Modifier
                     .fillMaxWidth()
                     .color(
@@ -60,7 +58,7 @@ fun WorkExperienceBlock(
                     .fontWeight(FontWeight.Bold)
             )
             SpanText(
-                text = organization,
+                text = workExperience.organization,
                 modifier = Modifier
                     .fillMaxWidth()
                     .color(
@@ -74,7 +72,7 @@ fun WorkExperienceBlock(
                     .fontWeight(FontWeight.Bold)
             )
             SpanText(
-                text = duration,
+                text = workExperience.duration,
                 modifier = Modifier
                     .fillMaxWidth()
                     .color(
@@ -89,7 +87,7 @@ fun WorkExperienceBlock(
         }
 
         SpanText(
-            text = sequenceNumber,
+            text = workExperience.sequenceNumber,
             modifier = Modifier.fontSize(3.cssRem)
                 .color(
                     when (ColorMode.current) {
