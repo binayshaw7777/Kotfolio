@@ -21,6 +21,7 @@ import org.jetbrains.compose.web.css.percent
 import com.binayshaw7777.kotfolio.components.sections.Footer
 import com.binayshaw7777.kotfolio.components.sections.NavHeader
 import com.binayshaw7777.kotfolio.components.widgets.AppearanceAwareImage
+import com.binayshaw7777.kotfolio.components.widgets.BackToTopButton
 import com.binayshaw7777.kotfolio.utils.Res
 import com.binayshaw7777.kotfolio.toSitePalette
 import com.varabyte.kobweb.compose.css.PointerEvents
@@ -133,6 +134,7 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
             ) {
                 content()
             }
+            BackToTopButton()
         }
         // Associate the footer with the row that will get pushed off the bottom of the page if it can't fit.
         Footer(Modifier.fillMaxWidth().gridRow(2))
