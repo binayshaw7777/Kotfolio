@@ -35,14 +35,14 @@ fun SkillsAndTools() {
 
         SimpleGrid(
             modifier = Modifier.fillMaxWidth().margin(top = 2.cssRem),
-            numColumns = numColumns(base = 1, md = 2)
+            numColumns = numColumns(base = 1, sm = 2)
         ) {
             GlassBox(
-                modifier = Modifier.margin(all = 3.cssRem)
+                modifier = Modifier.margin(all = 2.cssRem)
             ) {
                 SimpleGrid(
                     modifier = Modifier.padding(all = 1.cssRem),
-                    numColumns = numColumns(base = 1, md = 4)
+                    numColumns = numColumns(base = 1, sm = 2, md = 3, lg = 4)
                 ) {
                     GlassBox(
                         modifier = Modifier.size(65.px)
@@ -131,11 +131,11 @@ fun SkillsAndTools() {
             }
 
             GlassBox(
-                modifier = Modifier.margin(all = 3.cssRem)
+                modifier = Modifier.margin(all = 2.cssRem)
             ) {
                 SimpleGrid(
                     modifier = Modifier.padding(all = 1.cssRem),
-                    numColumns = numColumns(base = 1, md = 4)
+                    numColumns = numColumns(base = 1, sm = 2, md = 3, lg = 4)
                 ) {
                     GlassBox(
                         modifier = Modifier.size(65.px)
