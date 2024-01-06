@@ -95,19 +95,54 @@ fun HomePage() {
 
                 Column(Modifier.gap(2.cssRem)) {
 
-                    Div(HeadlineTextStyle.toModifier().animation(
-                        HeroContainerKeyFrames.toAnimation(
-                            duration = 1.s,
-                            timingFunction = AnimationTimingFunction.EaseInOut
-                        )
-                    ).toAttrs()) {
+                    Column(
+//                        modifier = Modifier.height(1.vh)
+                    ) {
 
-                        Column(
-                            horizontalAlignment = Alignment.Start
+                        Div(
+                            HeadlineTextStyle.toModifier().animation(
+                                HeroContainerKeyFrames.toAnimation(
+                                    duration = 1.s,
+                                    timingFunction = AnimationTimingFunction.EaseInOut
+                                )
+                            ).toAttrs()
                         ) {
 
+                            Column(
+                                horizontalAlignment = Alignment.Start
+                            ) {
+
+                                SpanText(
+                                    text = "Hello I'm",
+                                    modifier = Modifier
+                                        .color(
+                                            when (ColorMode.current) {
+                                                ColorMode.LIGHT -> Colors.Gray
+                                                ColorMode.DARK -> Colors.DimGray
+                                            }
+                                        )
+                                        .fontSize(FontSize.XXLarge)
+                                        .fontWeight(FontWeight.Bold)
+                                )
+                                SpanText(
+                                    text = "Binay Shaw.",
+                                    modifier = Modifier
+                                        .color(
+                                            when (ColorMode.current) {
+                                                ColorMode.LIGHT -> Colors.Black
+                                                ColorMode.DARK -> Colors.White
+                                            }
+                                        )
+                                        .fontSize(FontSize.Larger)
+                                        .fontWeight(FontWeight.Bold)
+                                )
+                            }
+
+                        }
+
+                        Div(SubheadlineTextStyle.toAttrs()) {
                             SpanText(
-                                text = "Hello I'm",
+                                text = "and Nice to meet you!",
                                 modifier = Modifier
                                     .color(
                                         when (ColorMode.current) {
@@ -115,54 +150,26 @@ fun HomePage() {
                                             ColorMode.DARK -> Colors.DimGray
                                         }
                                     )
-                                    .fontSize(FontSize.XXLarge)
-                                    .fontWeight(FontWeight.Bold)
-                            )
-                            SpanText(
-                                text = "Binay Shaw.",
-                                modifier = Modifier
-                                    .color(
-                                        when (ColorMode.current) {
-                                            ColorMode.LIGHT -> Colors.Black
-                                            ColorMode.DARK -> Colors.White
-                                        }
-                                    )
-                                    .fontSize(FontSize.Larger)
-                                    .fontWeight(FontWeight.Bold)
+                                    .fontFamily(Res.Fonts.Tauri)
                             )
                         }
 
-                    }
+                        val ctx = rememberPageContext()
 
-                    Div(SubheadlineTextStyle.toAttrs()) {
-                        SpanText(
-                            text = "and Nice to meet you!",
-                            modifier = Modifier
-                                .color(
-                                    when (ColorMode.current) {
-                                        ColorMode.LIGHT -> Colors.Gray
-                                        ColorMode.DARK -> Colors.DimGray
-                                    }
+                        Div(HeadlineTextStyle.toAttrs()) {
+                            Button(
+                                onClick = {
+                                    ctx.router.navigateTo(Constants.RESUME_URL)
+                                },
+                                colorScheme = CustomColorSchemes.BlackAndWhite,
+                                size = ButtonSize.MD,
+                                modifier = ButtonStyle.toModifier().width(150.percent)
+                            ) {
+                                SpanText(
+                                    text = "Resume",
+                                    modifier = Modifier.fontFamily(Res.Fonts.Tauri)
                                 )
-                                .fontFamily(Res.Fonts.Tauri)
-                        )
-                    }
-
-                    val ctx = rememberPageContext()
-
-                    Div(HeadlineTextStyle.toAttrs()) {
-                        Button(
-                            onClick = {
-                                ctx.router.navigateTo(Constants.RESUME_URL)
-                            },
-                            colorScheme = CustomColorSchemes.BlackAndWhite,
-                            size = ButtonSize.MD,
-                            modifier = ButtonStyle.toModifier().width(150.percent)
-                        ) {
-                            SpanText(
-                                text = "Resume",
-                                modifier = Modifier.fontFamily(Res.Fonts.Tauri)
-                            )
+                            }
                         }
                     }
 

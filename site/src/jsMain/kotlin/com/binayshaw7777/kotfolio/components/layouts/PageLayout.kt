@@ -27,6 +27,8 @@ import com.binayshaw7777.kotfolio.toSitePalette
 import com.varabyte.kobweb.compose.css.PointerEvents
 import com.varabyte.kobweb.compose.ui.styleModifier
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
+import org.jetbrains.compose.web.css.Position
+import org.jetbrains.compose.web.css.px
 
 val PageContentStyle by ComponentStyle {
     base { Modifier.fillMaxSize().padding(leftRight = 2.cssRem, top = 4.cssRem) }
@@ -127,7 +129,6 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
             Modifier.fillMaxSize().gridRow(1),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            NavHeader()
             Column(
                 PageContentStyle.toModifier(),
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -136,6 +137,7 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
             }
             BackToTopButton()
         }
+        NavHeader(modifier = Modifier.position(Position.Fixed).top(0.px))
         // Associate the footer with the row that will get pushed off the bottom of the page if it can't fit.
         Footer(Modifier.fillMaxWidth().gridRow(2))
     }
