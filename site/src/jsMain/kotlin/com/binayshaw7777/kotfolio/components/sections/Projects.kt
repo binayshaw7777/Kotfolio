@@ -1,6 +1,8 @@
 package com.binayshaw7777.kotfolio.components.sections
 
 import androidx.compose.runtime.Composable
+import com.binayshaw7777.kotfolio.components.styles.SectionDescriptionStyle
+import com.binayshaw7777.kotfolio.components.styles.SectionTitleStyle
 import com.binayshaw7777.kotfolio.components.widgets.AppearanceAwareImage
 import com.binayshaw7777.kotfolio.components.widgets.RoundedImage
 import com.binayshaw7777.kotfolio.components.widgets.SectionTitle
@@ -25,6 +27,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.textAlign
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.navigation.Link
+import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.cssRem
@@ -42,9 +45,8 @@ fun Projects() {
 
         SpanText(
             text = Constants.PROJECT_SECTION_TEXT,
-            modifier = Modifier
+            modifier = SectionDescriptionStyle.toModifier()
                 .textAlign(TextAlign.Center)
-                .margin(topBottom = 0.5.cssRem)
                 .color(
                     when (ColorMode.current) {
                         ColorMode.LIGHT -> Colors.Gray

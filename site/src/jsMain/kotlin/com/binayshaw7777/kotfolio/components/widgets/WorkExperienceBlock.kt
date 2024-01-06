@@ -2,6 +2,8 @@ package com.binayshaw7777.kotfolio.components.widgets
 
 import androidx.compose.runtime.Composable
 import com.binayshaw7777.kotfolio.components.model.WorkExperience
+import com.binayshaw7777.kotfolio.components.styles.WorkExperienceItemOrgStyle
+import com.binayshaw7777.kotfolio.components.styles.WorkExperienceItemRoleAndDurationStyle
 import com.binayshaw7777.kotfolio.utils.Res
 import com.varabyte.kobweb.compose.css.FontSize
 import com.varabyte.kobweb.compose.css.FontWeight
@@ -12,6 +14,7 @@ import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.LineStyle
@@ -46,7 +49,7 @@ fun WorkExperienceBlock(
         ) {
             SpanText(
                 text = workExperience.role,
-                modifier = Modifier
+                modifier = WorkExperienceItemRoleAndDurationStyle.toModifier()
                     .fillMaxWidth()
                     .color(
                         when (ColorMode.current) {
@@ -54,12 +57,11 @@ fun WorkExperienceBlock(
                             ColorMode.DARK -> Colors.DimGray
                         }
                     )
-                    .fontSize(FontSize.Small)
                     .fontWeight(FontWeight.Bold)
             )
             SpanText(
                 text = workExperience.organization,
-                modifier = Modifier
+                modifier = WorkExperienceItemOrgStyle.toModifier()
                     .fillMaxWidth()
                     .color(
                         when (ColorMode.current) {
@@ -68,12 +70,11 @@ fun WorkExperienceBlock(
                         }
                     )
                     .fontFamily(Res.Fonts.Space_Grotesk)
-                    .fontSize(FontSize.XXLarge)
                     .fontWeight(FontWeight.Bold)
             )
             SpanText(
                 text = workExperience.duration,
-                modifier = Modifier
+                modifier = WorkExperienceItemRoleAndDurationStyle.toModifier()
                     .fillMaxWidth()
                     .color(
                         when (ColorMode.current) {
@@ -81,7 +82,6 @@ fun WorkExperienceBlock(
                             ColorMode.DARK -> Colors.DimGray
                         }
                     )
-                    .fontSize(FontSize.Small)
                     .fontWeight(FontWeight.Bold)
             )
         }

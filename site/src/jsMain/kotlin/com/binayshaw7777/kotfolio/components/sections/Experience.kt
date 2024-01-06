@@ -1,6 +1,7 @@
 package com.binayshaw7777.kotfolio.components.sections
 
 import androidx.compose.runtime.Composable
+import com.binayshaw7777.kotfolio.components.styles.SectionDescriptionStyle
 import com.binayshaw7777.kotfolio.components.widgets.SectionTitle
 import com.binayshaw7777.kotfolio.components.widgets.WorkExperienceBlock
 import com.binayshaw7777.kotfolio.utils.Constants
@@ -20,6 +21,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.textAlign
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
+import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.cssRem
@@ -36,9 +38,8 @@ fun Experience() {
         SectionTitle(Constants.EXPERIENCE_TITLE)
 
         Span(
-            Modifier
+            SectionDescriptionStyle.toModifier()
                 .textAlign(TextAlign.Center)
-                .margin(top = 2.cssRem)
                 .fontFamily(Res.Fonts.DM_SANS)
                 .color(
                     when (ColorMode.current) {

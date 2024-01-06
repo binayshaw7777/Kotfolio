@@ -4,6 +4,9 @@ import androidx.compose.runtime.Composable
 import com.binayshaw7777.kotfolio.HeadlineTextStyle
 import com.binayshaw7777.kotfolio.SubheadlineTextStyle
 import com.binayshaw7777.kotfolio.components.styles.ButtonStyle
+import com.binayshaw7777.kotfolio.components.styles.HelloImStyle
+import com.binayshaw7777.kotfolio.components.styles.UserNameStyle
+import com.binayshaw7777.kotfolio.components.styles.UsersMessageStyle
 import com.binayshaw7777.kotfolio.pages.HeroContainerKeyFrames
 import com.binayshaw7777.kotfolio.utils.Constants
 import com.binayshaw7777.kotfolio.utils.CustomColorSchemes
@@ -53,26 +56,24 @@ fun Home() {
 
             SpanText(
                 text = Constants.HELLO_IM,
-                modifier = Modifier
+                modifier = HelloImStyle.toModifier()
                     .color(
                         when (ColorMode.current) {
                             ColorMode.LIGHT -> Colors.Gray
                             ColorMode.DARK -> Colors.DimGray
                         }
                     )
-                    .fontSize(FontSize.XXLarge)
                     .fontWeight(FontWeight.Bold)
             )
             SpanText(
                 text = Constants.BINAY_SHAW,
-                modifier = Modifier
+                modifier = UserNameStyle.toModifier()
                     .color(
                         when (ColorMode.current) {
                             ColorMode.LIGHT -> Colors.Black
                             ColorMode.DARK -> Colors.White
                         }
                     )
-                    .fontSize(FontSize.Larger)
                     .fontWeight(FontWeight.Bold)
             )
 
@@ -81,14 +82,14 @@ fun Home() {
             ) {
                 SpanText(
                     text = Constants.AND_NICE_TO_MEET_YOU,
-                    modifier = Modifier
+                    modifier = UsersMessageStyle.toModifier()
                         .color(
                             when (ColorMode.current) {
                                 ColorMode.LIGHT -> Colors.Gray
                                 ColorMode.DARK -> Colors.DimGray
                             }
                         )
-                        .fontFamily(Res.Fonts.Tauri)
+                        .fontFamily(Res.Fonts.DM_SANS)
                 )
             }
 

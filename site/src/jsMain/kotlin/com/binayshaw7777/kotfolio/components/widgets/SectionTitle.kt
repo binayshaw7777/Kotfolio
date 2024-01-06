@@ -2,6 +2,7 @@ package com.binayshaw7777.kotfolio.components.widgets
 
 import androidx.compose.runtime.Composable
 import com.binayshaw7777.kotfolio.SubheadlineTextStyle
+import com.binayshaw7777.kotfolio.components.styles.SectionTitleStyle
 import com.binayshaw7777.kotfolio.utils.Res
 import com.varabyte.kobweb.compose.css.FontSize
 import com.varabyte.kobweb.compose.css.FontWeight
@@ -15,6 +16,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
 import com.varabyte.kobweb.compose.ui.modifiers.size
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.style.toAttrs
+import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.px
@@ -28,9 +30,8 @@ fun SectionTitle(
         Div(SubheadlineTextStyle.toAttrs()) {
             SpanText(
                 text = sectionTitleText,
-                modifier = Modifier
+                modifier = SectionTitleStyle.toModifier()
                     .align(Alignment.Bottom)
-                    .fontSize(FontSize.XXLarge)
                     .color(
                         when (ColorMode.current) {
                             ColorMode.LIGHT -> Colors.Black
