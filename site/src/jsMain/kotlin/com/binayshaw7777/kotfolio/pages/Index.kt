@@ -25,6 +25,7 @@ import com.binayshaw7777.kotfolio.components.layouts.PageLayout
 import com.binayshaw7777.kotfolio.components.styles.ButtonStyle
 import com.binayshaw7777.kotfolio.components.widgets.AppearanceAwareImage
 import com.binayshaw7777.kotfolio.components.widgets.GlassBox
+import com.binayshaw7777.kotfolio.components.widgets.PhotographImage
 import com.binayshaw7777.kotfolio.components.widgets.RoundedImage
 import com.binayshaw7777.kotfolio.components.widgets.WorkExperienceBlock
 import com.binayshaw7777.kotfolio.utils.Constants
@@ -543,7 +544,22 @@ fun HomePage() {
                             )
                         }
 
-
+                        SimpleGrid(
+                            numColumns = numColumns(base = 1, md = 6)
+                        ) {
+                            PhotographImage(src = Res.Images.IMAGE_1)
+                            PhotographImage(src = Res.Images.IMAGE_2)
+                            PhotographImage(src = Res.Images.IMAGE_3)
+                            PhotographImage(src = Res.Images.IMAGE_4)
+                            PhotographImage(src = Res.Images.IMAGE_5)
+                            PhotographImage(src = Res.Images.IMAGE_6)
+                            PhotographImage(src = Res.Images.IMAGE_7)
+                            PhotographImage(src = Res.Images.IMAGE_8)
+                            PhotographImage(src = Res.Images.IMAGE_9)
+                            PhotographImage(src = Res.Images.IMAGE_10)
+                            PhotographImage(src = Res.Images.IMAGE_11)
+                            PhotographImage(src = Res.Images.IMAGE_12)
+                        }
                     }
 
                     Column(

@@ -44,6 +44,13 @@ object Res {
         const val IMAGE_3 = "images/Photographs/Image 3.png"
         const val IMAGE_4 = "images/Photographs/Image 4.png"
         const val IMAGE_5 = "images/Photographs/Image 5.png"
+        const val IMAGE_6 = "images/Photographs/Image 6.png"
+        const val IMAGE_7 = "images/Photographs/Image 7.png"
+        const val IMAGE_8 = "images/Photographs/Image 8.png"
+        const val IMAGE_9 = "images/Photographs/Image 9.png"
+        const val IMAGE_10 = "images/Photographs/Image 10.png"
+        const val IMAGE_11 = "images/Photographs/Image 11.png"
+        const val IMAGE_12 = "images/Photographs/Image 12.png"
 
         // Projects
         const val PROJECT_JUSTAP = "images/Projects/Project_JusTap.png"
