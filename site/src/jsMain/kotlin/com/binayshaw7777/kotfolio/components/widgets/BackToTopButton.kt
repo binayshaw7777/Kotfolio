@@ -11,7 +11,6 @@ import com.varabyte.kobweb.compose.css.CSSTransition
 import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.PointerEvents
-import com.varabyte.kobweb.compose.css.StyleVariable
 import com.varabyte.kobweb.compose.css.Visibility
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -50,13 +49,15 @@ import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import kotlinx.browser.document
 import kotlinx.browser.window
 import org.jetbrains.compose.web.css.AnimationTimingFunction
-import org.jetbrains.compose.web.css.CSSColorValue
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.ms
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.s
+import org.w3c.dom.SMOOTH
+import org.w3c.dom.ScrollBehavior
+import org.w3c.dom.ScrollToOptions
 
 
 val ArrowUpStyle by ComponentStyle.base {
@@ -141,7 +142,7 @@ fun BackToTopButton() {
                 .backgroundColor(buttonColor)
                 .visibility(if (show) Visibility.Visible else Visibility.Hidden)
                 .onClick {
-                    document.documentElement?.scroll(x = 0.0, y = 0.0)
+                    document.documentElement?.scroll(ScrollToOptions(top = 0.0, behavior = ScrollBehavior.SMOOTH))
                 }
                 .then(
                     if (show) {
