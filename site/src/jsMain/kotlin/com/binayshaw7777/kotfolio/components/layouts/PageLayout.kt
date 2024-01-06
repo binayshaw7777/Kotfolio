@@ -23,6 +23,8 @@ import com.binayshaw7777.kotfolio.components.sections.NavHeader
 import com.binayshaw7777.kotfolio.components.widgets.AppearanceAwareImage
 import com.binayshaw7777.kotfolio.utils.Res
 import com.binayshaw7777.kotfolio.toSitePalette
+import com.varabyte.kobweb.compose.css.PointerEvents
+import com.varabyte.kobweb.compose.ui.styleModifier
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 
 val PageContentStyle by ComponentStyle {
@@ -86,6 +88,13 @@ fun SVGBackroundCircle(modifier: Modifier) {
 
 @Composable
 fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
+
+    val cursor = if (ColorMode.current.isDark) {
+        Res.Images.CUSTOM_CURSOR_DARK
+    } else {
+        Res.Images.CUSTOM_CURSOR_LIGHT
+    }
+
     LaunchedEffect(title) {
         document.title = "Binay Shaw - $title"
     }
@@ -94,6 +103,9 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
         Modifier
             .fillMaxWidth()
             .minHeight(100.percent)
+            .styleModifier {
+                property("cursor", "url('$cursor'), auto")
+            }
             // Create a box with two rows: the main content (fills as much space as it can) and the footer (which reserves
             // space at the bottom). "min-content" means the use the height of the row, which we use for the footer.
             // Since this box is set to *at least* 100%, the footer will always appear at least on the bottom but can be
@@ -103,7 +115,7 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
             .gridTemplateRows { size(1.fr); size(minContent) },
         contentAlignment = Alignment.Center
     ) {
-        SVGBackroundCircle(Modifier.align(Alignment.TopEnd))
+        SVGBackroundCircle(Modifier.align(Alignment.TopEnd).pointerEvents(PointerEvents.None))
 
         Column(
             // Isolate the content, because otherwise the absolute-positioned SVG above will render on top of it.

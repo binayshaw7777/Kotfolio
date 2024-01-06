@@ -10,14 +10,7 @@ import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
-import com.varabyte.kobweb.compose.ui.modifiers.border
-import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
-import com.varabyte.kobweb.compose.ui.modifiers.color
-import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
-import com.varabyte.kobweb.compose.ui.modifiers.fontSize
-import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
-import com.varabyte.kobweb.compose.ui.modifiers.margin
-import com.varabyte.kobweb.compose.ui.modifiers.padding
+import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.LineStyle
@@ -34,11 +27,13 @@ fun WorkExperienceBlock(
 ) {
     Box(
         contentAlignment = Alignment.Center,
-        modifier = Modifier.fontFamily(Res.Fonts.DM_SANS).margin(leftRight = 0.5.cssRem).then(modifier)
+        modifier = Modifier.fillMaxWidth().padding(leftRight = 0.5.cssRem).fontFamily(Res.Fonts.DM_SANS).margin(leftRight = 0.5.cssRem).then(modifier)
     ) {
 
         Column(
             modifier = Modifier
+                .fillMaxWidth()
+                .padding(leftRight = 0.5.cssRem)
                 .border(
                     width = 1.px, style = LineStyle.Solid, color = when (ColorMode.current) {
                         ColorMode.LIGHT -> Colors.Gray
@@ -54,6 +49,7 @@ fun WorkExperienceBlock(
             SpanText(
                 text = role,
                 modifier = Modifier
+                    .fillMaxWidth()
                     .color(
                         when (ColorMode.current) {
                             ColorMode.LIGHT -> Colors.Gray
@@ -66,6 +62,7 @@ fun WorkExperienceBlock(
             SpanText(
                 text = organization,
                 modifier = Modifier
+                    .fillMaxWidth()
                     .color(
                         when (ColorMode.current) {
                             ColorMode.LIGHT -> Colors.Black
@@ -79,6 +76,7 @@ fun WorkExperienceBlock(
             SpanText(
                 text = duration,
                 modifier = Modifier
+                    .fillMaxWidth()
                     .color(
                         when (ColorMode.current) {
                             ColorMode.LIGHT -> Colors.Gray
@@ -102,6 +100,7 @@ fun WorkExperienceBlock(
                 .margin(left = 2.cssRem)
                 .align(Alignment.TopStart)
                 .fontWeight(FontWeight.Bold)
+                .fontFamily(Res.Fonts.Space_Grotesk)
         )
     }
 }

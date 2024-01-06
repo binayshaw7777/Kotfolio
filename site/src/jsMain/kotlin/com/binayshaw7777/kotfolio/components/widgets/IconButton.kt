@@ -10,6 +10,10 @@ import com.binayshaw7777.kotfolio.CircleButtonVariant
 import com.binayshaw7777.kotfolio.UncoloredButtonVariant
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
+import com.varabyte.kobweb.compose.ui.modifiers.scale
+import com.varabyte.kobweb.silk.components.style.ComponentStyle
+import com.varabyte.kobweb.silk.components.style.hover
+import com.varabyte.kobweb.silk.components.style.toModifier
 
 @Composable
 fun IconButton(
@@ -25,6 +29,12 @@ fun IconButton(
     }
 }
 
+
+val FooterIconsStyle by ComponentStyle {
+    hover {
+        Modifier.scale(1.1) // TODO: Try changing color on hover
+    }
+}
 @Composable
 fun IconButtonNoHover(
     onClick: () -> Unit,
@@ -32,7 +42,7 @@ fun IconButtonNoHover(
 ) {
     Button(
         onClick = { onClick() },
-        Modifier.setVariable(ButtonVars.FontSize, 1.em)
+        FooterIconsStyle.toModifier().setVariable(ButtonVars.FontSize, 1.em)
             .backgroundColor(Colors.Transparent), // Make button icon size relative to parent container font size
         variant = CircleButtonVariant.then(UncoloredButtonVariant)
     ) {

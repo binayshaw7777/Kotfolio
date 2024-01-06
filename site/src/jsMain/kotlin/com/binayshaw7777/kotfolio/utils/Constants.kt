@@ -8,4 +8,9 @@ object Constants {
     const val BEHANCE_URL = "https://www.behance.net/GAMIX7"
     const val MEDIUM_URL = "https://medium.com/@binayshaw7777"
     const val MAIL_TO = "mailto:binayshaw7777@gmail.com"
+    const val PROJECT_READBUD_URL = "https://github.com/binayshaw7777/ReadBud"
+    const val PROJECT_JUSTAP_URL = "https://github.com/binayshaw7777/JusTap"
+    const val PROJECT_MEDIFY_URL = "https://github.com/binayshaw7777/Medify"
+    const val PROJECT_PASSGENIE_URL = "https://github.com/binayshaw7777/PassGinie-Kobweb"
+    const val PROJECT_PRESIN_URL = "https://github.com/binayshaw7777/Microsoft-Engage-2022-PresIN"
 }

@@ -2,7 +2,6 @@ package com.binayshaw7777.kotfolio.components.sections
 
 import androidx.compose.runtime.*
 import com.varabyte.kobweb.compose.css.functions.clamp
-import com.varabyte.kobweb.compose.dom.ElementTarget
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.foundation.layout.Spacer
@@ -12,7 +11,6 @@ import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.components.animation.Keyframes
 import com.varabyte.kobweb.silk.components.animation.toAnimation
-import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.icons.CloseIcon
 import com.varabyte.kobweb.silk.components.icons.HamburgerIcon
 import com.varabyte.kobweb.silk.components.icons.MoonIcon
@@ -24,8 +22,6 @@ import com.varabyte.kobweb.silk.components.navigation.UncoloredLinkVariant
 import com.varabyte.kobweb.silk.components.navigation.UndecoratedLinkVariant
 import com.varabyte.kobweb.silk.components.overlay.Overlay
 import com.varabyte.kobweb.silk.components.overlay.OverlayVars
-import com.varabyte.kobweb.silk.components.overlay.PopupPlacement
-import com.varabyte.kobweb.silk.components.overlay.Tooltip
 import com.varabyte.kobweb.silk.components.style.ComponentStyle
 import com.varabyte.kobweb.silk.components.style.base
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
@@ -47,8 +43,12 @@ private fun NavLink(path: String, text: String) {
 
 @Composable
 private fun MenuItems() {
-    NavLink("/", "Home")
-    NavLink("/about", "About")
+    NavLink("#home", "Home")
+    NavLink("#about", "About")
+    NavLink("#experience", "Experience")
+//    NavLink("#skills_and_tools", "Skills & Tools")
+//    NavLink("#photography", "Photography")
+    NavLink("#projects", "Projects")
 }
 
 @Composable
@@ -100,7 +100,7 @@ enum class SideMenuState {
 
 @Composable
 fun NavHeader() {
-    Row(NavHeaderStyle.toModifier(), verticalAlignment = Alignment.CenterVertically) {
+    Row(NavHeaderStyle.toModifier().fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
 //        Link("https://kobweb.varabyte.com") {
 //            // Block display overrides inline display of the <img> tag, so it calculates centering better
 //            Image("/kobweb-logo.png", "Kobweb Logo", Modifier.height(2.cssRem).display(DisplayStyle.Block))

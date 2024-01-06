@@ -1,6 +1,7 @@
 package com.binayshaw7777.kotfolio.components.sections
 
 import androidx.compose.runtime.Composable
+import com.binayshaw7777.kotfolio.components.styles.ButtonStyle
 import com.binayshaw7777.kotfolio.components.widgets.AppearanceAwareImage
 import com.binayshaw7777.kotfolio.components.widgets.IconButtonNoHover
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -28,10 +29,10 @@ import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.components.forms.ButtonSize
+import com.varabyte.kobweb.silk.components.navigation.Link
 import org.jetbrains.compose.web.css.DisplayStyle
 import org.jetbrains.compose.web.css.fr
 import org.jetbrains.compose.web.css.px
-import org.jetbrains.compose.web.css.textDecoration
 import org.jetbrains.compose.web.dom.Div
 
 val FooterStyle by ComponentStyle.base {
@@ -80,23 +81,25 @@ fun Footer(modifier: Modifier = Modifier) {
                     },
                     colorScheme = CustomColorSchemes.BlackAndWhite,
                     size = ButtonSize.MD,
-                    modifier = Modifier.padding(leftRight = 20.px).margin(right = 20.px)
+                    modifier = ButtonStyle.toModifier().margin(right = 20.px)
                 ) {
                     SpanText(
                         text = "Email",
-                        modifier = Modifier.fontFamily(Res.Fonts.Tauri)
+                        modifier = Modifier.fontFamily(Res.Fonts.DM_SANS)
                     )
                 }
 
-                SpanText(
+                Link(
+                    path = Constants.RESUME_URL,
                     text = "Resume.",
                     modifier = Modifier
-                        .styleModifier {
-                            textDecoration("underline")
-                        }
-                        .onClick {
-                            ctx.router.navigateTo(Constants.RESUME_URL)
-                        }
+                        .fontFamily(Res.Fonts.DM_SANS)
+                        .color(
+                            when (ColorMode.current) {
+                                ColorMode.LIGHT -> Colors.Black
+                                ColorMode.DARK -> Colors.White
+                            }
+                        )
                 )
 
                 Spacer()

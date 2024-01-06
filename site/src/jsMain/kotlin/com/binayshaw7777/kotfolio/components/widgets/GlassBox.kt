@@ -16,10 +16,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
-import org.jetbrains.compose.web.css.CSSColorValue
-import org.jetbrains.compose.web.css.LineStyle
-import org.jetbrains.compose.web.css.px
-import org.jetbrains.compose.web.css.rgba
+import org.jetbrains.compose.web.css.*
 
 @Composable
 fun GlassBox(
@@ -39,13 +36,13 @@ fun GlassBox(
 ) {
 
     Box(
-        modifier = modifier,
+        modifier = Modifier.margin(leftRight = 1.cssRem).then(modifier),
         contentAlignment = Alignment.Center
     ) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .margin(2.px)
+                .margin(leftRight = 1.cssRem)
                 .borderRadius(roundedCorners)
                 .border(width = borderWidth, style = borderStyle, color = borderColor)
                 .styleModifier {
