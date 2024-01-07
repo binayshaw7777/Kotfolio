@@ -27,7 +27,7 @@ fun Photography() {
 
         SectionTitle(Constants.PHOTOGRAPH_TITLE)
 
-        SimpleGrid(modifier = Modifier.margin(top = 30.px),numColumns = numColumns(base = 1, md = 6)) {
+        SimpleGrid(modifier = Modifier.margin(top = 30.px),numColumns = numColumns(base = 1, sm = 2, md = 4, lg = 6)) {
 
             val allPhotographs = getAllPhotographs()
 
