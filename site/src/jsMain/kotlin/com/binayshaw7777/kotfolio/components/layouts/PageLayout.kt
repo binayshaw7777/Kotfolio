@@ -29,6 +29,7 @@ import com.varabyte.kobweb.compose.ui.styleModifier
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.css.vw
 
 val PageContentStyle by ComponentStyle {
     base { Modifier.fillMaxSize().padding(leftRight = 2.cssRem, top = 4.cssRem) }
@@ -72,17 +73,6 @@ private fun SvgCobweb(modifier: Modifier) {
 @OptIn(ExperimentalComposeWebApi::class)
 @Composable
 fun SVGBackroundCircle(modifier: Modifier) {
-    // On mobile, the SVG would cause scrolling, so clamp its max width
-//    val isLight = when (ColorMode.current) {
-//        ColorMode.LIGHT -> true
-//        ColorMode.DARK -> false
-//    }
-//    Image(
-//        src = Res.Images.BACKGROUND_CIRCLES,
-//        modifier = Modifier
-//            .styleModifier { filter { if (isLight) invert(1) else invert(0) } }
-//            .then(modifier)
-//    )
     AppearanceAwareImage(
         src = Res.Images.BACKGROUND_CIRCLES,
         modifier = modifier
@@ -118,7 +108,7 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
             .gridTemplateRows { size(1.fr); size(minContent) },
         contentAlignment = Alignment.Center
     ) {
-        SVGBackroundCircle(Modifier.align(Alignment.TopEnd).pointerEvents(PointerEvents.None))
+        SVGBackroundCircle(Modifier.align(Alignment.TopEnd).pointerEvents(PointerEvents.None).width(40.percent).minWidth(50.vw).styleModifier { property("height", "auto") })
 
         Column(
             // Isolate the content, because otherwise the absolute-positioned SVG above will render on top of it.
