@@ -4,9 +4,13 @@ import com.varabyte.kobweb.compose.css.FontSize
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
 import com.varabyte.kobweb.compose.ui.modifiers.margin
+import com.varabyte.kobweb.compose.ui.modifiers.opacity
+import com.varabyte.kobweb.silk.components.animation.Keyframes
 import com.varabyte.kobweb.silk.components.style.ComponentStyle
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import org.jetbrains.compose.web.css.cssRem
+import org.jetbrains.compose.web.css.percent
+import org.jetbrains.compose.web.css.px
 
 val HelloImStyle by ComponentStyle {
     base {
@@ -50,5 +54,18 @@ val UsersMessageStyle by ComponentStyle {
     }
     Breakpoint.LG {
         Modifier.fontSize(FontSize.XLarge)
+    }
+}
+
+val HeroContainerKeyFrames by Keyframes {
+    0.percent {
+        Modifier
+            .margin(top = 50.px)
+            .opacity(0)
+    }
+    100.percent {
+        Modifier
+            .margin(top = 0.px)
+            .opacity(1)
     }
 }

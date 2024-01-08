@@ -5,13 +5,12 @@ import com.binayshaw7777.kotfolio.HeadlineTextStyle
 import com.binayshaw7777.kotfolio.SubheadlineTextStyle
 import com.binayshaw7777.kotfolio.components.styles.ButtonStyle
 import com.binayshaw7777.kotfolio.components.styles.HelloImStyle
+import com.binayshaw7777.kotfolio.components.styles.HeroContainerKeyFrames
 import com.binayshaw7777.kotfolio.components.styles.UserNameStyle
 import com.binayshaw7777.kotfolio.components.styles.UsersMessageStyle
-import com.binayshaw7777.kotfolio.pages.HeroContainerKeyFrames
 import com.binayshaw7777.kotfolio.utils.Constants
 import com.binayshaw7777.kotfolio.utils.CustomColorSchemes
 import com.binayshaw7777.kotfolio.utils.Res
-import com.varabyte.kobweb.compose.css.FontSize
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
