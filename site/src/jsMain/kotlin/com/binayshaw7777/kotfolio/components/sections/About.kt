@@ -1,6 +1,7 @@
 package com.binayshaw7777.kotfolio.components.sections
 
 import androidx.compose.runtime.Composable
+import com.binayshaw7777.kotfolio.components.styles.AboutStyle
 import com.binayshaw7777.kotfolio.components.styles.SectionDescriptionStyle
 import com.binayshaw7777.kotfolio.components.widgets.SectionTitle
 import com.binayshaw7777.kotfolio.utils.Constants
@@ -22,7 +23,7 @@ import org.jetbrains.compose.web.css.vh
 @Composable
 fun About() {
     Column(
-        modifier = Modifier.id("about").height(100.vh),
+        modifier = AboutStyle.toModifier().id("about"),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

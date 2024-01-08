@@ -1,6 +1,7 @@
 package com.binayshaw7777.kotfolio.components.sections
 
 import androidx.compose.runtime.Composable
+import com.binayshaw7777.kotfolio.components.styles.ExperienceStyle
 import com.binayshaw7777.kotfolio.components.widgets.GlassBox
 import com.binayshaw7777.kotfolio.components.widgets.SectionTitle
 import com.binayshaw7777.kotfolio.utils.Constants
@@ -20,13 +21,14 @@ import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
+import com.varabyte.kobweb.silk.components.style.toModifier
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
 
 @Composable
 fun SkillsAndTools() {
     Column(
-        modifier = Modifier.fillMaxWidth().margin(top = 8.cssRem).id("skills_and_tools"),
+        modifier = ExperienceStyle.toModifier().id("skills_and_tools"),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

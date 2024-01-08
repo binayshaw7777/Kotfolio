@@ -1,6 +1,7 @@
 package com.binayshaw7777.kotfolio.components.sections
 
 import androidx.compose.runtime.Composable
+import com.binayshaw7777.kotfolio.components.styles.ExperienceStyle
 import com.binayshaw7777.kotfolio.components.styles.SectionDescriptionStyle
 import com.binayshaw7777.kotfolio.components.widgets.SectionTitle
 import com.binayshaw7777.kotfolio.components.widgets.WorkExperienceBlock
@@ -30,9 +31,9 @@ import org.jetbrains.compose.web.dom.Span
 @Composable
 fun Experience() {
     Column(
-        modifier = Modifier.id("experience"),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        modifier = ExperienceStyle.toModifier().id("experience"),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
 
         SectionTitle(Constants.EXPERIENCE_TITLE)
