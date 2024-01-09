@@ -49,7 +49,7 @@ val SubheadlineTextStyle by ComponentStyle.base {
     Modifier
         .fontSize(1.cssRem)
         .textAlign(TextAlign.Start)
-        .color(colorMode.toPalette().color.toRgb().copyf(alpha = 0.8f))
+        .color(colorMode.toPalette().color.toRgb())
 }
 
 val CircleButtonVariant by ButtonStyle.addVariantBase {

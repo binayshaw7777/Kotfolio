@@ -2,7 +2,6 @@ package com.binayshaw7777.kotfolio.components.sections
 
 import androidx.compose.runtime.*
 import com.varabyte.kobweb.compose.css.functions.clamp
-import com.varabyte.kobweb.compose.dom.ElementTarget
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.foundation.layout.Spacer
@@ -12,7 +11,6 @@ import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.components.animation.Keyframes
 import com.varabyte.kobweb.silk.components.animation.toAnimation
-import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.icons.CloseIcon
 import com.varabyte.kobweb.silk.components.icons.HamburgerIcon
 import com.varabyte.kobweb.silk.components.icons.MoonIcon
@@ -24,8 +22,6 @@ import com.varabyte.kobweb.silk.components.navigation.UncoloredLinkVariant
 import com.varabyte.kobweb.silk.components.navigation.UndecoratedLinkVariant
 import com.varabyte.kobweb.silk.components.overlay.Overlay
 import com.varabyte.kobweb.silk.components.overlay.OverlayVars
-import com.varabyte.kobweb.silk.components.overlay.PopupPlacement
-import com.varabyte.kobweb.silk.components.overlay.Tooltip
 import com.varabyte.kobweb.silk.components.style.ComponentStyle
 import com.varabyte.kobweb.silk.components.style.base
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
@@ -34,9 +30,18 @@ import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.*
 import com.binayshaw7777.kotfolio.components.widgets.IconButton
 import com.binayshaw7777.kotfolio.toSitePalette
+import com.varabyte.kobweb.compose.css.functions.blur
+import com.varabyte.kobweb.compose.foundation.layout.Arrangement
+import com.varabyte.kobweb.compose.ui.styleModifier
 
 val NavHeaderStyle by ComponentStyle.base {
-    Modifier.fillMaxWidth().padding(1.cssRem)
+    Modifier
+        .background(rgba(255, 255, 255, 0f))
+        .fillMaxWidth().padding(1.cssRem)
+        .backdropFilter(blur(4.px))
+        .styleModifier {
+            property("-webkit-backdrop-filter", "blur( 4px )")
+        }
 }
 
 @Composable
@@ -46,8 +51,12 @@ private fun NavLink(path: String, text: String) {
 
 @Composable
 private fun MenuItems() {
-    NavLink("/", "Home")
-    NavLink("/about", "About")
+    NavLink("#home", "Home")
+    NavLink("#about", "About")
+    NavLink("#experience", "Experience")
+//    NavLink("#skills_and_tools", "Skills & Tools")
+//    NavLink("#photography", "Photography")
+    NavLink("#projects", "Projects")
 }
 
 @Composable
@@ -56,7 +65,7 @@ private fun ColorModeButton() {
     IconButton(onClick = { colorMode = colorMode.opposite },) {
         if (colorMode.isLight) MoonIcon() else SunIcon()
     }
-    Tooltip(ElementTarget.PreviousSibling, "Toggle color mode", placement = PopupPlacement.BottomRight)
+//    Tooltip(ElementTarget.PreviousSibling, "Toggle color mode", placement = PopupPlacement.BottomRight)
 }
 
 @Composable
@@ -98,19 +107,14 @@ enum class SideMenuState {
 }
 
 @Composable
-fun NavHeader() {
-    Row(NavHeaderStyle.toModifier(), verticalAlignment = Alignment.CenterVertically) {
-        Link("https://kobweb.varabyte.com") {
-            // Block display overrides inline display of the <img> tag, so it calculates centering better
-            Image("/kobweb-logo.png", "Kobweb Logo", Modifier.height(2.cssRem).display(DisplayStyle.Block))
-        }
+fun NavHeader(modifier: Modifier = Modifier) {
+    Row(NavHeaderStyle.toModifier().fillMaxWidth().then(modifier), verticalAlignment = Alignment.CenterVertically) {
+//        Link("https://kobweb.varabyte.com") {
+//            // Block display overrides inline display of the <img> tag, so it calculates centering better
+//            Image("/kobweb-logo.png", "Kobweb Logo", Modifier.height(2.cssRem).display(DisplayStyle.Block))
+//        }
 
         Spacer()
-
-        Row(Modifier.gap(1.5.cssRem).displayIfAtLeast(Breakpoint.MD), verticalAlignment = Alignment.CenterVertically) {
-            MenuItems()
-            ColorModeButton()
-        }
 
         Row(
             Modifier
@@ -132,6 +136,13 @@ fun NavHeader() {
                 )
             }
         }
+
+        Row(Modifier.gap(1.5.cssRem).displayIfAtLeast(Breakpoint.MD), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween) {
+            MenuItems()
+            ColorModeButton()
+        }
+
+        Spacer()
     }
 }
 
