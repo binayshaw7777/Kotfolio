@@ -44,7 +44,7 @@ fun SkillsAndTools() {
             ) {
                 SimpleGrid(
                     modifier = Modifier.padding(all = 1.cssRem),
-                    numColumns = numColumns(base = 1, sm = 2, md = 3, lg = 4)
+                    numColumns = numColumns(base = 2, sm = 2, md = 3, lg = 4)
                 ) {
                     GlassBox(
                         modifier = Modifier.size(65.px)
@@ -137,7 +137,7 @@ fun SkillsAndTools() {
             ) {
                 SimpleGrid(
                     modifier = Modifier.padding(all = 1.cssRem),
-                    numColumns = numColumns(base = 1, sm = 2, md = 3, lg = 4)
+                    numColumns = numColumns(base = 2, sm = 2, md = 3, lg = 4)
                 ) {
                     GlassBox(
                         modifier = Modifier.size(65.px)
