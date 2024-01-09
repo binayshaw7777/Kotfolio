@@ -1,6 +1,7 @@
 package com.binayshaw7777.kotfolio.components.sections
 
 import androidx.compose.runtime.Composable
+import com.binayshaw7777.kotfolio.components.styles.ExperienceStyle
 import com.binayshaw7777.kotfolio.components.widgets.PhotographImage
 import com.binayshaw7777.kotfolio.components.widgets.SectionTitle
 import com.binayshaw7777.kotfolio.utils.Constants
@@ -14,13 +15,14 @@ import com.varabyte.kobweb.compose.ui.modifiers.id
 import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
+import com.varabyte.kobweb.silk.components.style.toModifier
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
 
 @Composable
 fun Photography() {
     Column(
-        modifier = Modifier.fillMaxWidth().margin(top = 10.cssRem).id("photography"),
+        modifier = ExperienceStyle.toModifier().id("photography"),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
