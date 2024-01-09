@@ -26,6 +26,7 @@ import com.binayshaw7777.kotfolio.utils.Res
 import com.binayshaw7777.kotfolio.toSitePalette
 import com.varabyte.kobweb.compose.css.PointerEvents
 import com.varabyte.kobweb.compose.ui.styleModifier
+import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.px
@@ -82,6 +83,8 @@ fun SVGBackroundCircle(modifier: Modifier) {
 @Composable
 fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
 
+    val breakpoint = rememberBreakpoint()
+
     val cursor = if (ColorMode.current.isDark) {
         Res.Images.CUSTOM_CURSOR_DARK
     } else {
@@ -129,6 +132,6 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
         }
         NavHeader(modifier = Modifier.position(Position.Fixed).top(0.px))
         // Associate the footer with the row that will get pushed off the bottom of the page if it can't fit.
-        Footer(Modifier.fillMaxWidth().gridRow(2))
+        Footer(breakpoint, Modifier.fillMaxWidth().gridRow(2))
     }
 }
