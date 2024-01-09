@@ -8,11 +8,9 @@ import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
 import com.varabyte.kobweb.compose.ui.modifiers.display
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxHeight
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
-import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.silk.components.graphics.Image
 import org.jetbrains.compose.web.css.DisplayStyle
-import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
 
 @Composable
@@ -21,7 +19,9 @@ fun PhotographImage(
     src: String
 ) {
     Box(
-        modifier = Modifier.fillMaxWidth().then(modifier).margin(1.cssRem).padding(all = 6.px),
+        modifier = Modifier
+            .fillMaxWidth().then(modifier)
+            .padding(all = 6.px),
         contentAlignment = Alignment.Center
     ) {
         Image(

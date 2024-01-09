@@ -1,6 +1,9 @@
 package com.binayshaw7777.kotfolio.components.widgets
 
 import androidx.compose.runtime.Composable
+import com.binayshaw7777.kotfolio.components.model.WorkExperience
+import com.binayshaw7777.kotfolio.components.styles.WorkExperienceItemOrgStyle
+import com.binayshaw7777.kotfolio.components.styles.WorkExperienceItemRoleAndDurationStyle
 import com.binayshaw7777.kotfolio.utils.Res
 import com.varabyte.kobweb.compose.css.FontSize
 import com.varabyte.kobweb.compose.css.FontWeight
@@ -11,6 +14,7 @@ import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.LineStyle
@@ -20,10 +24,7 @@ import org.jetbrains.compose.web.css.px
 @Composable
 fun WorkExperienceBlock(
     modifier: Modifier = Modifier,
-    sequenceNumber: String,
-    role: String,
-    organization: String,
-    duration: String
+    workExperience: WorkExperience
 ) {
     Box(
         contentAlignment = Alignment.Center,
@@ -47,8 +48,8 @@ fun WorkExperienceBlock(
             horizontalAlignment = Alignment.Start
         ) {
             SpanText(
-                text = role,
-                modifier = Modifier
+                text = workExperience.role,
+                modifier = WorkExperienceItemRoleAndDurationStyle.toModifier()
                     .fillMaxWidth()
                     .color(
                         when (ColorMode.current) {
@@ -56,12 +57,11 @@ fun WorkExperienceBlock(
                             ColorMode.DARK -> Colors.DimGray
                         }
                     )
-                    .fontSize(FontSize.Small)
                     .fontWeight(FontWeight.Bold)
             )
             SpanText(
-                text = organization,
-                modifier = Modifier
+                text = workExperience.organization,
+                modifier = WorkExperienceItemOrgStyle.toModifier()
                     .fillMaxWidth()
                     .color(
                         when (ColorMode.current) {
@@ -70,12 +70,11 @@ fun WorkExperienceBlock(
                         }
                     )
                     .fontFamily(Res.Fonts.Space_Grotesk)
-                    .fontSize(FontSize.XXLarge)
                     .fontWeight(FontWeight.Bold)
             )
             SpanText(
-                text = duration,
-                modifier = Modifier
+                text = workExperience.duration,
+                modifier = WorkExperienceItemRoleAndDurationStyle.toModifier()
                     .fillMaxWidth()
                     .color(
                         when (ColorMode.current) {
@@ -83,13 +82,12 @@ fun WorkExperienceBlock(
                             ColorMode.DARK -> Colors.DimGray
                         }
                     )
-                    .fontSize(FontSize.Small)
                     .fontWeight(FontWeight.Bold)
             )
         }
 
         SpanText(
-            text = sequenceNumber,
+            text = workExperience.sequenceNumber,
             modifier = Modifier.fontSize(3.cssRem)
                 .color(
                     when (ColorMode.current) {

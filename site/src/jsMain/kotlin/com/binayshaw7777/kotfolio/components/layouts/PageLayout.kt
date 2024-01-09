@@ -21,11 +21,16 @@ import org.jetbrains.compose.web.css.percent
 import com.binayshaw7777.kotfolio.components.sections.Footer
 import com.binayshaw7777.kotfolio.components.sections.NavHeader
 import com.binayshaw7777.kotfolio.components.widgets.AppearanceAwareImage
+import com.binayshaw7777.kotfolio.components.widgets.BackToTopButton
 import com.binayshaw7777.kotfolio.utils.Res
 import com.binayshaw7777.kotfolio.toSitePalette
 import com.varabyte.kobweb.compose.css.PointerEvents
 import com.varabyte.kobweb.compose.ui.styleModifier
+import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
+import org.jetbrains.compose.web.css.Position
+import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.css.vw
 
 val PageContentStyle by ComponentStyle {
     base { Modifier.fillMaxSize().padding(leftRight = 2.cssRem, top = 4.cssRem) }
@@ -69,17 +74,6 @@ private fun SvgCobweb(modifier: Modifier) {
 @OptIn(ExperimentalComposeWebApi::class)
 @Composable
 fun SVGBackroundCircle(modifier: Modifier) {
-    // On mobile, the SVG would cause scrolling, so clamp its max width
-//    val isLight = when (ColorMode.current) {
-//        ColorMode.LIGHT -> true
-//        ColorMode.DARK -> false
-//    }
-//    Image(
-//        src = Res.Images.BACKGROUND_CIRCLES,
-//        modifier = Modifier
-//            .styleModifier { filter { if (isLight) invert(1) else invert(0) } }
-//            .then(modifier)
-//    )
     AppearanceAwareImage(
         src = Res.Images.BACKGROUND_CIRCLES,
         modifier = modifier
@@ -88,6 +82,8 @@ fun SVGBackroundCircle(modifier: Modifier) {
 
 @Composable
 fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
+
+    val breakpoint = rememberBreakpoint()
 
     val cursor = if (ColorMode.current.isDark) {
         Res.Images.CUSTOM_CURSOR_DARK
@@ -115,7 +111,7 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
             .gridTemplateRows { size(1.fr); size(minContent) },
         contentAlignment = Alignment.Center
     ) {
-        SVGBackroundCircle(Modifier.align(Alignment.TopEnd).pointerEvents(PointerEvents.None))
+        SVGBackroundCircle(Modifier.align(Alignment.TopEnd).pointerEvents(PointerEvents.None).width(40.percent).minWidth(50.vw).styleModifier { property("height", "auto") })
 
         Column(
             // Isolate the content, because otherwise the absolute-positioned SVG above will render on top of it.
@@ -126,15 +122,16 @@ fun PageLayout(title: String, content: @Composable ColumnScope.() -> Unit) {
             Modifier.fillMaxSize().gridRow(1),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            NavHeader()
             Column(
                 PageContentStyle.toModifier(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 content()
             }
+            BackToTopButton()
         }
+        NavHeader(modifier = Modifier.position(Position.Fixed).top(0.px))
         // Associate the footer with the row that will get pushed off the bottom of the page if it can't fit.
-        Footer(Modifier.fillMaxWidth().gridRow(2))
+        Footer(breakpoint, Modifier.fillMaxWidth().gridRow(2))
     }
 }

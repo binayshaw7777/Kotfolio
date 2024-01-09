@@ -30,10 +30,18 @@ import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.*
 import com.binayshaw7777.kotfolio.components.widgets.IconButton
 import com.binayshaw7777.kotfolio.toSitePalette
+import com.varabyte.kobweb.compose.css.functions.blur
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
+import com.varabyte.kobweb.compose.ui.styleModifier
 
 val NavHeaderStyle by ComponentStyle.base {
-    Modifier.fillMaxWidth().padding(1.cssRem)
+    Modifier
+        .background(rgba(255, 255, 255, 0f))
+        .fillMaxWidth().padding(1.cssRem)
+        .backdropFilter(blur(4.px))
+        .styleModifier {
+            property("-webkit-backdrop-filter", "blur( 4px )")
+        }
 }
 
 @Composable
@@ -99,8 +107,8 @@ enum class SideMenuState {
 }
 
 @Composable
-fun NavHeader() {
-    Row(NavHeaderStyle.toModifier().fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+fun NavHeader(modifier: Modifier = Modifier) {
+    Row(NavHeaderStyle.toModifier().fillMaxWidth().then(modifier), verticalAlignment = Alignment.CenterVertically) {
 //        Link("https://kobweb.varabyte.com") {
 //            // Block display overrides inline display of the <img> tag, so it calculates centering better
 //            Image("/kobweb-logo.png", "Kobweb Logo", Modifier.height(2.cssRem).display(DisplayStyle.Block))
