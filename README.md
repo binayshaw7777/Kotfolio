@@ -25,9 +25,7 @@ Kotfolio is a minimalistic and clean portfolio project built with [Kobweb](https
 
 ## Mockups
 ![1](https://github.com/binayshaw7777/Kotfolio/assets/62587060/0e9eb36b-8a9a-4036-82a3-4fccd67c5a83)
-![Scene](https://github.com/binayshaw7777/Kotfolio/assets/62587060/2fa82014-715b-4b38-80b1-fdb1707f6f3f)
 ![Free Premium Black 3D Device Website Mockup](https://github.com/binayshaw7777/Kotfolio/assets/62587060/9ac5f3a9-fa9e-4093-b45c-396f28811445)
-![12](https://github.com/binayshaw7777/Kotfolio/assets/62587060/86f86884-bbe7-4c5b-893d-2c9c9a8af84e)
 ![2](https://github.com/binayshaw7777/Kotfolio/assets/62587060/fd81d615-37ac-4dd7-a98e-0cc9e8e6684f)
 
 
