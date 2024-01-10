@@ -54,3 +54,11 @@ You can use any editor you want for the project, but we recommend using **Intell
 using the [Toolbox App](https://www.jetbrains.com/toolbox-app/).
 
 Press `Q` in the terminal to gracefully stop the server.
+
+---
+
+<br>
+
+[![Star History Chart](https://api.star-history.com/svg?repos=binayshaw7777/Kotfolio&type=Date)](https://star-history.com/#binayshaw7777/Kotfolio&Date)
+
+<br>
