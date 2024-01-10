@@ -1,3 +1,5 @@
+![Group 21](https://github.com/binayshaw7777/Kotfolio/assets/62587060/da8002a1-fceb-4ded-bf53-eef944dd138a)
+
 # Kotfolio
 
 Kotfolio is a minimalistic and clean portfolio project built with [Kobweb](https://github.com/varabyte/kobweb), a Compose HTML framework for Kotlin multi-platform. The design is inspired by product designers, showcasing a sleek black color scheme.
