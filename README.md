@@ -6,6 +6,12 @@ Kotfolio is a minimalistic and clean portfolio project built with [Kobweb](https
 
 ## [Try Kotfolio](https://kotfolio.onrender.com/)
 
+<p align="center">
+  <img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-a503fc?logo=kotlin&logoColor=white&style=for-the-badge"/></a>
+  <img alt="Jetpack Compose" src="https://img.shields.io/static/v1?style=for-the-badge&message=Jetpack+Compose&color=4285F4&logo=Jetpack+Compose&logoColor=FFFFFF&label="/></a> 
+  <a href="https://hits.sh/github.com/binayshaw7777/Kotfolio/"><img alt="Hits" src="https://hits.sh/github.com/binayshaw7777/Kotfolio.svg?style=for-the-badge&label=Views&extraCount=10&color=54856b"/></a>
+</p>
+
 ## Features
 
 - **Minimal Design:** Keep it simple, yet elegant, to highlight your work.
